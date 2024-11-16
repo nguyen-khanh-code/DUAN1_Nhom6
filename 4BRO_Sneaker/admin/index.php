@@ -15,13 +15,19 @@ require_once './models/adminSanPham.php';
 
 
 
-// Route
+// Route 
 $act = $_GET['act'] ?? '/';
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 // var_dump($_GET);
 match ($act) {
-
+// '/'    => (new adminController())->index(),
+// rout danh muc
 'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
+'form-them-danh-muc' => (new adminDanhMucController())->formAddDanhMuc(),
+'them-danh-muc' => (new adminDanhMucController())->AddDanhMuc(),
+'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
+'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
+
 'san-pham' => (new adminSanPhamController())->danhsachSanPham()
 
 
