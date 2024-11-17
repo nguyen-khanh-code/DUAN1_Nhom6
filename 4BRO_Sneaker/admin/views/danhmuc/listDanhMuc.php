@@ -25,12 +25,15 @@
 
     <!-- Main content -->
     <section class="content">
+    
+          
+
             <div class="card">
               <div class="card-header">
                 
-                <button class="btn btn-danger"><a style="color: white" href="?act=form-them-danh-muc">Thêm danh mục</a> </button>
+                <a class="btn btn-success" href="?act=form-them-danh-muc"><button>Thêm danh mục</button></a>
               </div>
-                
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -43,17 +46,13 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($danhsachDanhMuc as $key=>$danhmuc) : ?>
+                    <?php foreach($danhsachDanhMuc as $key=>$danhmuc):?>
                   <tr>
                     <td><?= $key+1?></td>
                     <td><?= $danhmuc['ten_danh_muc']?></td>
                     <td><?= $danhmuc['mo_ta']?></td>
                     <td>
-                    <a href="?act=form-sua-danh-muc&id_danh_muc=<?= $danhmuc['id'] ?>">
-
-                        <button class="btn btn-warning">Sửa</button>
-                      </a>
-                      <a href="?act=xoa-danh-muc&id_danh_muc=<?= $danhmuc['id'] ?>" onclick="return confirm('Bạn có đồng ý xóa hay ko')">
+                      <button class="btn btn-warning">Sửa</button>
                       <button class="btn btn-danger">Xóa</button>
 
                     </td>
