@@ -25,8 +25,9 @@ match ($act) {
 'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
 'form-them-danh-muc' => (new adminDanhMucController())->formAddDanhMuc(),
 'them-danh-muc' => (new adminDanhMucController())->AddDanhMuc(),
-'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
-'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
+'form-sua-danh-muc' => (new adminDanhMucController())->formEditAddDanhMuc(),
+'sua-danh-muc' => (new adminDanhMucController())->EditDanhMuc(),
+'xoa-danh-muc' => (new adminDanhMucController())->deleteDanhMuc(),
 
 'san-pham' => (new adminSanPhamController())->danhsachSanPham()
 
