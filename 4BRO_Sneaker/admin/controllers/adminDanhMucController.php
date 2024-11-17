@@ -9,6 +9,12 @@ class adminDanhMucController
     }
     public function danhsachDanhMuc() {
         $danhsachDanhMuc=$this->modelDanhMuc->getAllDanhMuc();
-        require_once './views/danhmuc/DanhMuc.php';
+        require_once './views/danhmuc/listDanhMuc.php';
+    }
+    public function formAddDanhMuc(){
+//  hien thi form them
+    }
+    public function AddDanhMuc(){
+        // theem
     }
 }

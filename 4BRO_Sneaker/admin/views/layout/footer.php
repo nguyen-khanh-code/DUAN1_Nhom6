@@ -1,8 +1,8 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
+    By  <b>Nhóm 6</b>
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Website giày 4BRO Sneaker</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
