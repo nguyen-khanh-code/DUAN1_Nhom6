@@ -22,5 +22,9 @@ match ($act) {
     // BASE_URL/?act=trang-chu
     'danh-sach-sp' =>(new HomeController())->danhsachSanPham()   
     // BASE_URL/?act=danh-sach-sp
+    
+
+
+    ..
 
 };
