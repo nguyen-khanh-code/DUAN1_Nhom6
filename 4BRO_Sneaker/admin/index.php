@@ -39,14 +39,17 @@ match ($act) {
 // Router bao cao thong ke - trang chu
 '/' => (new adminBaoCaoThongKeController()) ->home(),
 
-'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
-'san-pham' => (new adminSanPhamController())->danhsachSanPham()
+'danh-muc-san-pham' => (new adminDanhMucController())->danhsachDanhMuc(),
+'san-pham' => (new adminSanPhamController())->danhsachSanPham(),
 
 
 
 // router quan ly tai khoan
 // Quan ly tai khoan quan tri
-'list-tai-khoan-quan-tri' => (new adminTaiKhoanController()) -> danhSachQuanTri()
-
+'list-tai-khoan-quan-tri' => (new adminTaiKhoanController()) -> danhSachQuanTri(),
+'form-them-quan-tri' => (new adminTaiKhoanController())->formAddQuanTri(),
+'them-quan-tri' => (new adminTaiKhoanController())->postAddQuanTri(),
+'form-sua-quan-tri' => (new adminTaiKhoanController())->formEditQuanTri(),
+'sua-quan-tri' => (new adminTaiKhoanController())->postEditQuanTri(),
 
 };
