@@ -211,4 +211,12 @@ class adminTaiKhoanController {
         require_once './views/taikhoan/khachhang/detailKhachHang.php';
     }
     
+
+
+    public function formLogin(){
+        require_once './views/auth/formLogin.php';
+
+        $this->deleteSessionError();
+
+    }
 }

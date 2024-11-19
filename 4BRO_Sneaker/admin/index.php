@@ -56,9 +56,14 @@ match ($act) {
 'reset-password' => (new adminTaiKhoanController())->resetPassword(),
 
 // Quan ky tai khoan khach hang
-'list-tai-khoan-khach-hang' => (new adminTaiKhoanController()) -> danhSachKhachHang(),
+'list-tai-khoan-khach-hang' => (new adminTaiKhoanController())->danhSachKhachHang(),
 'form-sua-khach-hang' => (new adminTaiKhoanController())->formEditKhachHang(),
 'sua-khach-hang' => (new adminTaiKhoanController())->postEditKhachHang(),
 'chi-tiet-khach-hang' => (new adminTaiKhoanController())->detailKhachHang(),
+
+
+//Router auth
+'login-admin' => (new adminTaiKhoanController())->formLogin(),
+'check-login-admin' => (new adminTaiKhoanController())->login(),
 
 };
