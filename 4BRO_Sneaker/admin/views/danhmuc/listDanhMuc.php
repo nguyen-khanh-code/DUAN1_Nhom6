@@ -31,7 +31,7 @@
             <div class="card">
               <div class="card-header">
                 
-                <a class="btn btn-success" href="?act=form-them-danh-muc"><button>Thêm danh mục</button></a>
+                <a  href="?act=form-them-danh-muc"><button class="btn btn-success">Thêm danh mục</button></a>
               </div>
 
               <!-- /.card-header -->
