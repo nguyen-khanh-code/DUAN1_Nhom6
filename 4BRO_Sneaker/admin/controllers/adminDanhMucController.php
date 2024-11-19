@@ -40,7 +40,7 @@ class adminDanhMucController
         $id = $_GET['id_danh_muc'];
         $danhMuc = $this->modelDanhMuc->DetailDanhMuc($id);
         if($danhMuc){
-            require_once './views/danhmuc/editDanhMuc.php';
+            require_once './views/danhmuc/editAddDanhMuc.php';
         }else{
             header("Location:?act=danh-muc " );
                 exit();
