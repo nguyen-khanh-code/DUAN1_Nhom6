@@ -29,9 +29,9 @@ match ($act) {
 'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
 'form-them-danh-muc' => (new adminDanhMucController())->formAddDanhMuc(),
 'them-danh-muc' => (new adminDanhMucController())->AddDanhMuc(),
-// 'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
-// 'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
-
+'form-sua-danh-muc' => (new adminDanhMucController())->formEditAddDanhMuc(),
+'sua-danh-muc' => (new adminDanhMucController())->EditDanhMuc(),
+'xoa-danh-muc' => (new adminDanhMucController())->deleteDanhMuc(),
 
 // router sản phẩm
 'san-pham' => (new adminSanPhamController())->danhsachSanPham(),
@@ -41,6 +41,7 @@ match ($act) {
 'sua-san-pham' => (new adminSanPhamController())->editSanPham(),
 'xoa-san-pham' => (new adminSanPhamController())->deleteSanPham(),
 'chi-tiet-san-pham' => (new adminSanPhamController())->detailSanPham()
+
 
 
 
