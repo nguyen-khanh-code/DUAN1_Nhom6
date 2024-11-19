@@ -52,4 +52,13 @@ match ($act) {
 'form-sua-quan-tri' => (new adminTaiKhoanController())->formEditQuanTri(),
 'sua-quan-tri' => (new adminTaiKhoanController())->postEditQuanTri(),
 
+// route reset password tai khoan
+'reset-password' => (new adminTaiKhoanController())->resetPassword(),
+
+// Quan ky tai khoan khach hang
+'list-tai-khoan-khach-hang' => (new adminTaiKhoanController()) -> danhSachKhachHang(),
+'form-sua-khach-hang' => (new adminTaiKhoanController())->formEditKhachHang(),
+'sua-khach-hang' => (new adminTaiKhoanController())->postEditKhachHang(),
+'chi-tiet-khach-hang' => (new adminTaiKhoanController())->detailKhachHang(),
+
 };

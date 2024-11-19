@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quản lý tài khoản quản trị viên</h1>
+          <h1>Quản lý tài khoản khách hàng</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -24,20 +24,20 @@
   <section class="content">
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">Sửa thông tin tài khoản quản trị: 
-          <?= isset($quanTri['ho_ten']) ? htmlspecialchars($quanTri['ho_ten'], ENT_QUOTES, 'UTF-8') : 'N/A'; ?>
+        <h3 class="card-title">Sửa thông tin tài khoản khách hàng: 
+          <?= isset($khachHang['ho_ten']) ? htmlspecialchars($khachHang['ho_ten'], ENT_QUOTES, 'UTF-8') : 'N/A'; ?>
         </h3>
       </div>
       <!-- Form Start -->
-      <form method="POST" action="<?= BASE_URL_ADMIN . '?act=sua-quan-tri' ?>">
-        <input type="hidden" name="quan_tri_id" value="<?= isset($quanTri['id']) ? htmlspecialchars($quanTri['id'], ENT_QUOTES, 'UTF-8') : ''; ?>">
+      <form method="POST" action="<?= BASE_URL_ADMIN . '?act=sua-khach-hang' ?>">
+        <input type="hidden" name="khach_hang_id" value="<?= isset($khachHang['id']) ? htmlspecialchars($khachHang['id'], ENT_QUOTES, 'UTF-8') : ''; ?>">
 
         <div class="card-body">
           <!-- Họ tên -->
           <div class="form-group">
             <label>Họ tên</label>
             <input type="text" class="form-control" name="ho_ten" 
-                   value="<?= isset($quanTri['ho_ten']) ? htmlspecialchars($quanTri['ho_ten'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($khachHang['ho_ten']) ? htmlspecialchars($khachHang['ho_ten'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập họ tên">
             <?php if (isset($_SESSION['error']['ho_ten'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
@@ -48,7 +48,7 @@
           <div class="form-group">
             <label>Email</label>
             <input type="email" class="form-control" name="email" 
-                   value="<?= isset($quanTri['email']) ? htmlspecialchars($quanTri['email'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($khachHang['email']) ? htmlspecialchars($khachHang['email'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập email">
             <?php if (isset($_SESSION['error']['email'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
@@ -56,13 +56,44 @@
           </div>
 
           <!-- Số điện thoại -->
+
           <div class="form-group">
             <label>Số điện thoại</label>
             <input type="text" class="form-control" name="so_dien_thoai" 
-                   value="<?= isset($quanTri['so_dien_thoai']) ? htmlspecialchars($quanTri['so_dien_thoai'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($khachHang['so_dien_thoai']) ? htmlspecialchars($khachHang['so_dien_thoai'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập số điện thoại">
             <?php if (isset($_SESSION['error']['so_dien_thoai'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['so_dien_thoai'] ?></p>
+            <?php } ?>
+          </div>
+
+
+          <div class="form-group">
+            <label>Ngày sinh</label>
+            <input type="date" class="form-control" name="ngay_sinh" 
+                   value="<?= isset($khachHang['ngay_sinh']) ? htmlspecialchars($khachHang['ngay_sinh'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   placeholder="Nhập ngay sinh">
+            <?php if (isset($_SESSION['error']['ngay_sinh'])){ ?> 
+                <p class="text-danger"><?= $_SESSION['error']['ngay_sinh'] ?></p>
+            <?php } ?>
+          </div>
+
+          <div class="form-group">
+            <label>Giới tính</label>
+            <select name="gioi_tinh" id="inputStatus" class="form-control custom-select">
+              <option <?= isset($khachHang['gioi_tinh']) && $khachHang['gioi_tinh'] == 1 ? 'selected' : '' ?> value="1">Nam</option>
+              <option <?= isset($khachHang['gioi_tinh']) && $khachHang['gioi_tinh'] != 1 ? 'selected' : '' ?> value="2">Nữ</option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label>Địa chỉ</label>
+            <input type="text" class="form-control" name="dia_chi" 
+                   value="<?= isset($khachHang['dia_chi']) ? htmlspecialchars($khachHang['dia_chi'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   placeholder="Nhập địa chỉ">
+            <?php if (isset($_SESSION['error']['dia_chi'])){ ?> 
+                <p class="text-danger"><?= $_SESSION['error']['dia_chi'] ?></p>
             <?php } ?>
           </div>
 
@@ -70,8 +101,8 @@
           <div class="form-group">
             <label for="inputStatus">Trạng thái tài khoản</label>
             <select name="trang_thai" id="inputStatus" class="form-control custom-select">
-              <option <?= isset($quanTri['trang_thai']) && $quanTri['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Active</option>
-              <option <?= isset($quanTri['trang_thai']) && $quanTri['trang_thai'] != 1 ? 'selected' : '' ?> value="2">Inactive</option>
+              <option <?= isset($khachHang['trang_thai']) && $khachHang['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Active</option>
+              <option <?= isset($khachHang['trang_thai']) && $khachHang['trang_thai'] != 1 ? 'selected' : '' ?> value="2">Inactive</option>
             </select>
           </div>
 

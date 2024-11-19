@@ -18,48 +18,54 @@
         <div class="col-sm-6">
           <h1>Quản lí tài khoản quản trị viên</h1>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <div class="card card-primary">
-      <div class="card-header">
-        <h3 class="card-title">Thêm tài khoản quản trị</h3>
       </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
-      <!-- /.card-header -->
-      <!-- form start -->
-      <form action="<?= BASE_URL_ADMIN . '?act=them-quan-tri' ?>" method="POST">
-        <div class="card-body">
-          <div class="form-group">
-            <label>Họ tên</label>
-            <input type="text" class="form-control" name="ho_ten" placeholder="Nhập họ tên">
-            <?php if (isset($_SESSION['error']['ho_ten'])) { ?>
-              <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
-            <?php } ?>
-          </div>
-
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email" placeholder="Nhập email" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>">
-            <?php if (isset($_SESSION['error']['email'])) { ?>
-              <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
-            <?php } ?>
-          </div>
-        </div>
-
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Thêm tài khoản quản trị</h3>
     </div>
 
-  </section>
-  <!-- /.content -->
+    <!-- form start -->
+    <form action="<?= BASE_URL_ADMIN . '?act=them-quan-tri' ?>" method="POST">
+      <div class="card-body">
+        <div class="form-group">
+          <label>Họ tên</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            name="ho_ten" 
+            placeholder="Nhập họ tên" 
+            value="<?= isset($_POST['ho_ten']) ? htmlspecialchars($_POST['ho_ten'], ENT_QUOTES, 'UTF-8') : '' ?>">
+          <?php if (isset($_SESSION['error']['ho_ten'])): ?>
+            <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
+          <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input 
+            type="email" 
+            class="form-control" 
+            name="email" 
+            placeholder="Nhập email" 
+            value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : '' ?>">
+          <?php if (isset($_SESSION['error']['email'])): ?>
+            <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+
+      <!-- /.card-body -->
+      <div class="card-footer">
+        <a href="javascript:history.back()" class="btn btn-secondary">Quay lại</a>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
 <!-- /.content-wrapper -->
 
 <!-- footer -->
 <?php include './views/layout/footer.php'; ?>
-
-<!-- end footer -->
