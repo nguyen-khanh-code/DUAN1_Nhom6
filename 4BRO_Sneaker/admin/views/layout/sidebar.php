@@ -32,6 +32,7 @@
           <a href="#" class="d-block">Nguyễn Duy Khánh</a>
         </div>
       </div> -->
+      
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -61,18 +62,29 @@
           </li>    
           <li class="nav-item">
             <a href="?act=danh-muc" class="nav-link">
-               <i class="nav-icon fas fa-th"></i>
+            <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lí danh mục
               </p>
             </a>
           <li class="nav-item">
             <a href="?act=san-pham" class="nav-link">
+            <i class="fa-solid fa-box-open"></i>
               <p>
                 Quản lí sản phẩm
               </p>
             </a>
-          </li>         
+          </li>     
+          
+          <li class="nav-item">
+            <a href="?act=don-hang" class="nav-link">
+            <!-- <i class="nav-icon fas fa-file-invoice-dollar"></i> -->
+            <i class="fa-solid fa-cart-shopping"></i>
+              <p>
+                Đơn hàng
+              </p>
+            </a>
+          </li>  
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
