@@ -44,13 +44,14 @@
           </li>    
           <li class="nav-item">
             <a href="?act=danh-muc" class="nav-link">
-               <i class="nav-icon fas fa-th"></i>
+            <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lí danh mục
               </p>
             </a>
           <li class="nav-item">
             <a href="?act=san-pham" class="nav-link">
+            <i class="fa-solid fa-box-open"></i>
               <p>
                 Quản lí sản phẩm
               </p>
