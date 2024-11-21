@@ -10,11 +10,13 @@ require_once './controllers/adminDanhMucController.php';
 require_once './controllers/adminSanPhamController.php';
 require_once './controllers/adminBaoCaoThongKeController.php';
 require_once './controllers/adminTaiKhoanController.php';
+require_once './controllers/adminDonHangController.php';
 
 // Require toàn bộ file Models
 require_once './models/adminDanhMuc.php';
 require_once './models/adminSanPham.php';
 require_once './models/adminTaiKhoan.php';
+require_once './models/adminDonHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -52,9 +54,17 @@ try {
         'sua-khach-hang' => (new adminTaiKhoanController())->postEditKhachHang(),
         'chi-tiet-khach-hang' => (new adminTaiKhoanController())->detailKhachHang(),
 
+
+        // router quản đơn hàng
+'don-hang' => (new adminDonHangController())->danhsachDonHang(),
+'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
+'sua-don-hang' => (new adminDonHangController())->editDonHang(),
+'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang(),
+
         // Route auth
         'login-admin' => (new adminTaiKhoanController())->formLogin(),
         'check-login-admin' => (new adminTaiKhoanController())->login(),
+        
 
         // Default case
         default => throw new Exception('Route không tồn tại hoặc không được hỗ trợ'),
