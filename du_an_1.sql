@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 10, 2024 at 11:02 AM
+-- Generation Time: Nov 19, 2024 at 09:26 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bd_xuong_thu_cung`
+-- Database: `du_an_1`
 --
 
 -- --------------------------------------------------------
@@ -87,6 +87,14 @@ CREATE TABLE `danh_mucs` (
   `mo_ta` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `danh_mucs`
+--
+
+INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `mo_ta`) VALUES
+(1, 'giày thể thao', 'hoat dong manh'),
+(4, 'Converse', 'eem ');
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +139,13 @@ CREATE TABLE `hinh_anh_san_phams` (
   `link_hinh_anh` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `hinh_anh_san_phams`
+--
+
+INSERT INTO `hinh_anh_san_phams` (`id`, `san_pham_id`, `link_hinh_anh`) VALUES
+(1, 1, 'https://baotanglichsu.vn/DataFiles/Uploaded/image/kienthuc-thanh2.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -153,7 +168,7 @@ CREATE TABLE `san_phams` (
   `ten_san_pham` varchar(255) NOT NULL,
   `gia_san_pham` decimal(10,2) NOT NULL,
   `gia_khuyen_mai` decimal(10,2) DEFAULT NULL,
-  `hinh_anh` varchar(255) DEFAULT NULL,
+  `hinh_anh` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `so_luong` int NOT NULL,
   `luot_xem` int DEFAULT '0',
   `ngay_nhap` date NOT NULL,
@@ -161,6 +176,13 @@ CREATE TABLE `san_phams` (
   `danh_muc_id` int NOT NULL,
   `trang_thai` tinyint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `san_phams`
+--
+
+INSERT INTO `san_phams` (`id`, `ten_san_pham`, `gia_san_pham`, `gia_khuyen_mai`, `hinh_anh`, `so_luong`, `luot_xem`, `ngay_nhap`, `mo_ta`, `danh_muc_id`, `trang_thai`) VALUES
+(1, 'comverse run star', '12000000.00', '700000.00', './uploads/1731994184a06528c-3_60872e38c6bd47c88d1421a39f1411c8_master.jpg', 24, 0, '2024-11-01', 'đây là loại giày basic phù hợp cho mọi lứa tuổi đặc biệt là học sinh', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -302,7 +324,7 @@ ALTER TABLE `chuc_vus`
 -- AUTO_INCREMENT for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `don_hangs`
@@ -320,7 +342,7 @@ ALTER TABLE `gio_hangs`
 -- AUTO_INCREMENT for table `hinh_anh_san_phams`
 --
 ALTER TABLE `hinh_anh_san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `phuong_thuc_thanh_toans`
@@ -332,7 +354,7 @@ ALTER TABLE `phuong_thuc_thanh_toans`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tai_khoans`
