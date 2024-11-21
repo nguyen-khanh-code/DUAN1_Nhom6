@@ -9,10 +9,14 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/adminDanhMucController.php';
 require_once './controllers/adminSanPhamController.php';
+require_once './controllers/adminDonHangController.php';
+
 
 // Require toàn bộ file Models
 require_once './models/adminDanhMuc.php';
 require_once './models/adminSanPham.php';
+require_once './models/adminDonHang.php';
+
 
 
 
@@ -40,14 +44,13 @@ match ($act) {
 'form-sua-san-pham' => (new adminSanPhamController())->formEditSanPham(),
 'sua-san-pham' => (new adminSanPhamController())->editSanPham(),
 'xoa-san-pham' => (new adminSanPhamController())->deleteSanPham(),
-'chi-tiet-san-pham' => (new adminSanPhamController())->detailSanPham()
+'chi-tiet-san-pham' => (new adminSanPhamController())->detailSanPham(),
 
-
-
-
-
-
-
+// router quản đơn hàng
+'don-hang' => (new adminDonHangController())->danhsachDonHang(),
+'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
+'sua-don-hang' => (new adminDonHangController())->editDonHang(),
+'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang(),
 
 
 
