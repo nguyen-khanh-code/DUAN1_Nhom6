@@ -65,7 +65,7 @@
             <!-- <i class="nav-icon fas fa-file-invoice-dollar"></i> -->
             <i class="fa-solid fa-cart-shopping"></i>
               <p>
-                Đơn hàng
+                Đơn
               </p>
             </a>
           </li>  
