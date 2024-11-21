@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <!-- <img src="./assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"  style="opacity: .8"> -->
+      <img  src="./assets/dist/img/LOGO.png" alt="AdminLTE Logo"  style="opacity: .8; width:50px;height:40px;" >
       <span class="brand-text font-weight-light">ADMIN 4BRO Sneaker</span>
     </a>
 
@@ -16,6 +16,8 @@
           <a href="#" class="d-block">Nguyễn Duy Khánh</a>
         </div>
       </div>
+
+
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -92,7 +94,7 @@
                 </p>
             </a>
         </li>
-        
+
     </ul>
 </li>
 

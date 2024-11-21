@@ -45,7 +45,7 @@
               <th>Số lượng</th>
               <th>Lượt xem</th>
               <!-- <th>Ngày Nhập</th> -->
-              <th>Mô tả</th>
+              <!-- <th>Mô tả</th> -->
               <th> ID danh mục</th>
               <th>Trạng Thái</th>
               <th>Thao tác</th>
@@ -62,7 +62,7 @@
                 <td><img class="w-50 h-50" src="<?php echo  BASE_URL . $sanpham['hinh_anh'] ?>" alt=""> </td>
                 <td><?= $sanpham['so_luong'] ?></td>
                 <td><?= $sanpham['luot_xem'] ?></td>
-                <td><?= $sanpham['mo_ta'] ?></td>
+               
                 <td><?= $sanpham['ten_danh_muc'] ?></td>
                 <td><?= $sanpham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng'; ?> </td>
 
@@ -94,7 +94,7 @@
               <th>Số lượng</th>
               <th>Lượt xem</th>
               <!-- <th>Ngày Nhập</th> -->
-              <th>Mô tả</th>
+              <!-- <th>Mô tả</th> -->
               <th> ID danh mục</th>
               <th>Trạng Thái</th>
               <th>Thao tác</th>
