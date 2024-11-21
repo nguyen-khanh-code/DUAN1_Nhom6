@@ -49,7 +49,9 @@ function deletesessionError(){
         session_destroy();
     }
 }
-
+function formatPrice($price){
+    return number_format($price,0, ',', '.');
+}
 
 // format date 
 function formatDate($date){

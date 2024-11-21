@@ -6,8 +6,8 @@
 
 <!-- /.navbar -->
 
-<!-- Main Sidebar Container -->
-<?php include './views/layout/sidebar.php'; ?>
+<!-- Main Sidebar Container
+<?php include './views/layout/sidebar.php'; ?> -->
 
 
 <!-- Content Wrapper. Contains page content -->
