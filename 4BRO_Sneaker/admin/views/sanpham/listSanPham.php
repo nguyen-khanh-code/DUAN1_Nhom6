@@ -59,7 +59,7 @@
                 <td><?= $sanpham['ten_san_pham'] ?></td>
                 <td><?= $sanpham['gia_san_pham'] ?></td>
                 <!-- <td></td> -->
-                <td><img class="w-50 h-50" src="<?= BASE_URL . $sanpham['hinh_anh'] ?>" alt=""> </td>
+                <td><img class="w-50 h-50" src="<?php echo  BASE_URL . $sanpham['hinh_anh'] ?>" alt=""> </td>
                 <td><?= $sanpham['so_luong'] ?></td>
                 <td><?= $sanpham['luot_xem'] ?></td>
                 <td><?= $sanpham['mo_ta'] ?></td>

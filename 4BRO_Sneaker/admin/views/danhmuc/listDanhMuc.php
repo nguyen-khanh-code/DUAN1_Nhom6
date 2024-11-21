@@ -29,7 +29,6 @@
               <div class="card-header">
                 
                 <a  href="?act=form-them-danh-muc"><button class="btn btn-success">Thêm danh mục</button></a>
-                <button class="btn btn-danger"><a style="color: white" href="?act=form-them-danh-muc">Thêm danh mục</a> </button>
               </div>
                 
               <!-- /.card-header -->

@@ -22,6 +22,7 @@ $act = $_GET['act'] ?? '/';
 // Để bảo đảm tính chất chỉ gọi 1 hàm Controller để xử lý request, sử dụng match
 try {
     match ($act) {
+        '/' => (neW adminBaoCaoThongKeController())->home(),
         // Route danh mục
         'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
         'form-them-danh-muc' => (new adminDanhMucController())->formAddDanhMuc(),

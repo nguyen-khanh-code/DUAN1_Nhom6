@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 class adminTaiKhoanController {
     public $modelTaiKhoan;
 
@@ -218,5 +221,31 @@ class adminTaiKhoanController {
 
         $this->deleteSessionError();
 
+    }
+
+    public function login(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //lay email va passs
+
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $user = $this->modelTaiKhoan->checkLogin($email, $password);
+
+            if($user ==  $email) {
+                $_SESSION['user_admin'] = $user;
+                header("Location: " . BASE_URL_ADMIN);
+                exit();
+            } else {
+                $_SESSION['error'] = $user;
+
+                // var_dump($_SESSION['error']);die; 
+
+                $_SESSION['flash'] = true;
+
+                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+                exit();
+            }
+        }
     }
 }

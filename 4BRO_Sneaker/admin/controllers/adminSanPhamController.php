@@ -33,9 +33,11 @@ class adminSanPhamController
             $mo_ta = $_POST['mo_ta' ?? ''];
             $hinh_anh = $_FILES['hinh_anh' ?? null];
             // lưu hình ảnh
-            // var_dump($_POST); die();
             $file_thumb = uploadfile($hinh_anh, './uploads/');
             // $img_array=$_FILES['img_array'];
+            // echo '<pre>';
+            // echo $file_thumb;
+            // var_dump($_FILES); die();
 
             $errors = [];
             if (empty($ten_san_pham)) {

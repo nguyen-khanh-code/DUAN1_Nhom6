@@ -54,29 +54,32 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($danhsachSanPham as $key=>$sanpham):?>
-                  <tr>
-                    <td><?= $key+1?></td>
-                    <td><?= $sanpham['ten_san_pham']?></td>
-                    <td><?= $sanpham['gia_san_pham']?></td>
-                    <td><?= $sanpham['gia_khuyen_mai']?></td>
-                    <td><img class="form-control" src="<?= $sanpham['hinh_anh']?>" alt="">   </td>
-                    <td><?= $sanpham['so_luong']?></td>
-                    <td><?= $sanpham['luot_xem']?></td>
-                    <td><?= $sanpham['ngay_nhap']?></td>
-                    <td><?= $sanpham['mo_ta']?></td>
-                    <td><?= $sanpham['danh_muc_id']?></td>
-                    <td><?= $sanpham['trang_thai']?></td>
-                
-
+                  <?php if (!empty($danhsachSanPham)): ?>
+            <?php foreach ($danhsachSanPham as $key => $sanpham): ?>
+                <tr>
+                    <td><?= $key + 1 ?></td>
+                    <td><?= $sanpham['ten_san_pham'] ?></td>
+                    <td><?= $sanpham['gia_san_pham'] ?></td>
+                    <td><?= $sanpham['gia_khuyen_mai'] ?></td>
+                    <td><img class="form-control" src="<?= $sanpham['hinh_anh'] ?>" alt=""></td>
+                    <td><?= $sanpham['so_luong'] ?></td>
+                    <td><?= $sanpham['luot_xem'] ?></td>
+                    <td><?= $sanpham['ngay_nhap'] ?></td>
+                    <td><?= $sanpham['mo_ta'] ?></td>
+                    <td><?= $sanpham['danh_muc_id'] ?></td>
+                    <td><?= $sanpham['trang_thai'] ?></td>
                     <td>
-                      <button class="btn btn-warning">Sửa</button>
-                      <button class="btn btn-danger">Xóa</button>
-
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
                     </td>
-                  </tr>
-        
-                 <?php endforeach ?>
+                </tr>
+            <?php endforeach ?>
+        <?php else: ?>
+    <tr>
+        <td colspan="12">Không có sản phẩm nào.</td>
+    </tr>
+<?php endif ?>
+
                   </tbody>
                   <tfoot>
                   <tr>
