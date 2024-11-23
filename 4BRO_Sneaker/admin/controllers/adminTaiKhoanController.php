@@ -5,9 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
 class adminTaiKhoanController {
     public $modelTaiKhoan;
+    public $modelDonHang;
+    public $modelSanPham;
 
     public function __construct(){
         $this->modelTaiKhoan = new adminTaiKhoan();
+        $this->modelDonHang = new adminDonHang();
+        $this->modelSanPham = new adminSanPham();
     }
     
     
@@ -210,6 +214,10 @@ class adminTaiKhoanController {
     public function detailKhachHang(){
         $id_khach_hang = $_GET['id_khach_hang'];
         $khachHang = $this->modelTaiKhoan->getDetailTaiKhoan($id_khach_hang);
+
+
+        $danhsachDonHang = $this->modelDonHang->getDonHangFromKhachHang($id_khach_hang);
+        $listBinhLuan = $this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
 
         require_once './views/taikhoan/khachhang/detailKhachHang.php';
     }

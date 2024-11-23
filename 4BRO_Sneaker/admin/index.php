@@ -41,7 +41,10 @@ try {
         'sua-san-pham' => (new adminSanPhamController())->editSanPham(),
         'xoa-san-pham' => (new adminSanPhamController())->deleteSanPham(),
         'chi-tiet-san-pham' => (new adminSanPhamController())->detailSanPham(),
+        
 
+        //Router binh luan
+        'update-trang-thai-binh-luan' =>  (new adminSanPhamController())->updateTrangThaiBinhLuan(),
         // Route quản lý tài khoản
         'list-tai-khoan-quan-tri' => (new adminTaiKhoanController())->danhSachQuanTri(),
         'form-them-quan-tri' => (new adminTaiKhoanController())->formAddQuanTri(),

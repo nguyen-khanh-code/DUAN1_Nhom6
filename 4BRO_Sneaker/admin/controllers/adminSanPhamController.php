@@ -215,6 +215,7 @@ class adminSanPhamController
     public function deleteSanPham()
     {
         $id = $_GET['id_san_pham'];
+
         $sanpham = $this->modelSanPham->getDetailSanPham($id);
         if ($sanpham) {
             deletefile($sanpham['hinh_anh']);
@@ -223,10 +224,13 @@ class adminSanPhamController
         header("location:".'?act=san-pham');
         exit();
     }
+
+
     public function detailSanPham()
     {
         $id = $_GET['id_san_pham'];
         $sanpham = $this->modelSanPham->getDetailSanPham($id);
+        $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
         // $listSanPham=$this->modelSanPham->getListAnhSanPham($id);
         // var_dump($sanpham);die;
         // $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
@@ -239,5 +243,32 @@ class adminSanPhamController
         } else {
             header("location:" . '?act=san-pham');
         }
+    }
+
+    public function updateTrangThaiBinhLuan(){
+        $id_binh_luan = $_POST['id_binh_luan'];
+        $name_view = $_POST['name_view'];
+        $id_khach_hang = $_POST['id_khach_hang'];
+        $binhLuan = $this->modelSanPham->getDetailBinhLuan($id_binh_luan);
+
+        if($binhLuan){
+            $trang_thai_update = '';
+            if($binhLuan['trang_thai'] == 1){
+                $trang_thai_update = 2;
+            }else{
+                $trang_thai_update = 1;
+            }
+
+           $status =  $this->modelSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update);
+           if($status){
+            if($name_view == 'detail_khach'){
+                header("location:" . '?act=chi-tiet-khach-hang&id_khach_hang=' . $id_khach_hang);
+            }else{
+                header("location:" . '?act=chi-tiet-san-pham&id_san_pham=' . $binhLuan['san_pham_id']);
+            }
+           }
+            
+        }
+
     }
 }

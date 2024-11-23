@@ -22,11 +22,8 @@ match ($act) {
     // BASE_URL/?act=trang-chu
     'danh-sach-sp' =>(new HomeController())->danhsachSanPham()   
     // BASE_URL/?act=danh-sach-sp
-<<<<<<< HEAD
     
 
 
 
-=======
->>>>>>> ceae81586c3ff22c94bfec23f0f8be68538d8566
 };
