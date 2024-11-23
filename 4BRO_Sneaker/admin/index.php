@@ -50,7 +50,7 @@ match ($act) {
 'don-hang' => (new adminDonHangController())->danhsachDonHang(),
 'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
 'sua-don-hang' => (new adminDonHangController())->editDonHang(),
-'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang(),
+'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang()
 
 
 

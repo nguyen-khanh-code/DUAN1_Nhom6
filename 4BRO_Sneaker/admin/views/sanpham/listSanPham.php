@@ -76,7 +76,7 @@
                       <button class="btn btn-warning"><i class="fa-solid fa-gear"></i></button></a>
                     <!-- <button class="btn btn-danger">Xóa</button> -->
                     <a class="p-1" href="?act=xoa-san-pham&id_san_pham=<?= $sanpham['id'] ?>" onclick="return confirm('Bạn có đồng ý xóa không')">
-                      <button class="btn btn-warning"><i class="fa-solid fa-trash-can"></i></button>
+                      <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </a>
                   </div>
                 </td>
