@@ -14,7 +14,7 @@
                             <div class="logo">
                                 <a href="">
                                         
-                                    <img src="assets/img/logo/LOGO.png" alt="Brand Logo">
+                                    <img src="assets/img/logo/LOGO.png" alt="Brand Logo" style="width:80px;height:65px;">
                                 </a>
                             </div>
                         </div>
@@ -28,11 +28,13 @@
                                     <nav class="desktop-menu">
                                         <ul>
                                             <li><a href="">Trang chủ</i></a>     </li>
+                                            <li><a href="">Thương hiệu</i></a>     </li>
+
                                                
                                     <li><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
                                                 <ul class="dropdown">
                                                     <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                    <li><a href="blog-list-left-sidebar.html">blog list left sidebar</a></li>
+                                                    <!-- <li><a href="blog-list-left-sidebar.html">blog list left sidebar</a></li>
                                                     <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
                                                     <li><a href="blog-list-right-sidebar.html">blog list right sidebar</a></li>
                                                     <li><a href="blog-grid-full-width.html">blog grid full width</a></li>
@@ -40,7 +42,7 @@
                                                     <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
                                                     <li><a href="blog-details-audio.html">blog details audio</a></li>
                                                     <li><a href="blog-details-video.html">blog details video</a></li>
-                                                    <li><a href="blog-details-image.html">blog details image</a></li>
+                                                    <li><a href="blog-details-image.html">blog details image</a></li> -->
                                                 </ul>
                                             </li>
                                             <li><a href="#">Giới thiệu</a></li>
