@@ -63,13 +63,8 @@
                             <div class="form-group col-6">
                                 <label>Giá khuyễn mãi</label>
                                 <input type="number" class="form-control" name="gia_khuyen_mai" placeholder="Nhập giá khuyến mãi sản phẩm">
-                                <?php
-                                if (isset($_SESSION['error']['gia_khuyen_mai'])) { ?>
-
-                                    <p class="text-danger"><?= $_SESSION['error']['gia_khuyen_mai'] ?></p>
-                                <?php
-                                }
-                                ?>
+                                
+                                
                             </div>
 
                             <div class="form-group col-6">

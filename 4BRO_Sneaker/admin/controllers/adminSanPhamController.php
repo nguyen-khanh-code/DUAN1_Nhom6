@@ -44,9 +44,9 @@ class adminSanPhamController
             if (empty($gia_san_pham)) {
                 $errors['gia_san_pham'] = 'Giá sản phẩm không được để trống';
             }
-            if (empty($gia_khuyen_mai)) {
-                $errors['gia_khuyen_mai'] = 'Giá khuyến sản phẩm không được để trống';
-            }
+            // if (empty($gia_khuyen_mai)) {
+            //     $errors['gia_khuyen_mai'] = 'Giá khuyến sản phẩm không được để trống';
+            // }
             if (empty($so_luong)) {
                 $errors['so_luong'] = 'Số lượng sản phẩm không được để trống';
             }
@@ -148,9 +148,9 @@ class adminSanPhamController
             if (empty($gia_san_pham)) {
                 $errors['gia_san_pham'] = 'Giá sản phẩm không được để trống';
             }
-            if (empty($gia_khuyen_mai)) {
-                $errors['gia_khuyen_mai'] = 'Giá khuyến sản phẩm không được để trống';
-            }
+            // if (empty($gia_khuyen_mai)) {
+            //     $errors['gia_khuyen_mai'] = 'Giá khuyến sản phẩm không được để trống';
+            // }
             if (empty($so_luong)) {
                 $errors['so_luong'] = 'Số lượng sản phẩm không được để trống';
             }

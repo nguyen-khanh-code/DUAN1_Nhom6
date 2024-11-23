@@ -6,8 +6,8 @@
 
 <!-- /.navbar -->
 
-<!-- Main Sidebar Container
-<?php include './views/layout/sidebar.php'; ?> -->
+<!-- Main Sidebar Container -->
+<?php include './views/layout/sidebar.php'; ?>
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -73,9 +73,7 @@
                                             <div class="form-group">
                                                 <label for="gia_khuyen_mai">Giá khuyến mãi</label>
                                                 <input type="number" id="gia_khuyen_mai" class="form-control" name="gia_khuyen_mai" value="<?= $sanpham['gia_khuyen_mai'] ?>">
-                                                <?php if (isset($_SESSION['error']['gia_khuyen_mai'])) {  ?>
-                                                    <p class="text-danger"><?= $_SESSION['error']['gia_khuyen_mai'] ?></p>
-                                                <?php } ?>
+                                                
 
                                             </div>
                                             <div class="form-group">

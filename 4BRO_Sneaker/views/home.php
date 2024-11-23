@@ -152,10 +152,13 @@
                                         <!-- product item start -->
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
+                                                    
                                                     <img class="pri-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>"alt="product">
                                                     <img class="sec-img" src="<?= BASE_URL . $sanPham['hinh_anh']?>" alt="product">
                                                 </a>
+                                               
+
                                                 <div class="product-badge">
                                                     <?php 
                                                     $ngayNhap = new DateTime($sanPham['ngay_nhap']);
@@ -174,13 +177,15 @@
                                                 </div>
                                                
                                                 <div class="cart-hover">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
                                                     <button class="btn btn-cart">Chi tiết</button>
+                                                </a>
                                                 </div>
                                             </figure>
                                             <div class="product-caption text-center">
                                                
                                                 <h6 class="product-name">
-                                                    <a href="product-details.html"><?= $sanPham['ten_san_pham']?></a>
+                                                    <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>"><?= $sanPham['ten_san_pham']?></a>
                                                 </h6>
                                                 <div class="price-box">
                                                     <?php if ($sanPham['gia_khuyen_mai']) { ?>                       
@@ -229,7 +234,7 @@
                                         <!-- product item start -->
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img class="pri-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>"alt="product">
                                                     <img class="sec-img" src="<?= BASE_URL . $sanPham['hinh_anh']?>" alt="product">
                                                 </a>
@@ -251,13 +256,15 @@
                                                 </div>
                                                
                                                 <div class="cart-hover">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
                                                     <button class="btn btn-cart">Chi tiết</button>
+                                                </a>
                                                 </div>
                                             </figure>
                                             <div class="product-caption text-center">
                                                
                                                 <h6 class="product-name">
-                                                    <a href="product-details.html"><?= $sanPham['ten_san_pham']?></a>
+                                                    <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>"><?= $sanPham['ten_san_pham']?></a>
                                                 </h6>
                                                 <div class="price-box">
                                                     <?php if ($sanPham['gia_khuyen_mai']) { ?>                       
@@ -276,7 +283,7 @@
                             <!-- <div class="product-item">
                                 <figure class="product-thumb">
                                 
-                                    <a href="product-details.html">
+                                    <a href=">
                                         <img class="pri-img" src="assets/img/product/product-6.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/product/product-13.jpg" alt="product">
                                     </a>
@@ -300,7 +307,7 @@
                                 <div class="product-caption text-center">
                                   
                                     <h6 class="product-name">
-                                        <a href="product-details.html">Perfect Diamond Jewelry</a>
+                                        <a href=">Perfect Diamond Jewelry</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>
@@ -355,12 +362,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-1.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Diamond Exclusive ring</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$50.00</span>
@@ -375,12 +382,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-3.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden ring</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$55.00</span>
@@ -395,12 +402,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-5.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         exclusive gold Jewelry</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$45.00</span>
@@ -415,12 +422,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-7.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Perfect Diamond earring</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$50.00</span>
@@ -435,12 +442,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-9.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden Necklace</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$90.00</span>
@@ -455,12 +462,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-11.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden Necklace</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$20.00</span>
@@ -475,12 +482,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-13.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden ring</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$55.00</span>
@@ -495,12 +502,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-15.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         exclusive gold Jewelry</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$45.00</span>
@@ -531,12 +538,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-17.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden Necklace</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$50.00</span>
@@ -551,12 +558,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-16.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden Necklaces</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$55.00</span>
@@ -571,12 +578,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-12.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         exclusive silver top bracellet</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$45.00</span>
@@ -591,12 +598,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-11.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         top Perfect Diamond necklace</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$50.00</span>
@@ -611,12 +618,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-7.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Diamond Exclusive earrings</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$90.00</span>
@@ -631,12 +638,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-2.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         corano top exclusive jewellry</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$20.00</span>
@@ -651,12 +658,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-18.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         Handmade Golden ring</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$55.00</span>
@@ -671,12 +678,12 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                     <img src="assets/img/product/product-14.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                                         exclusive gold Jewelry</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$45.00</span>
@@ -881,13 +888,13 @@
                         <ul>
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
-                                    <a href="product-details.html">
+                                    <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                         <img src="assets/img/cart/cart-1.jpg" alt="product">
                                     </a>
                                 </div>
                                 <div class="minicart-content">
                                     <h3 class="product-name">
-                                        <a href="product-details.html">Dozen White Botanical Linen Dinner Napkins</a>
+                                        <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">Dozen White Botanical Linen Dinner Napkins</a>
                                     </h3>
                                     <p>
                                         <span class="cart-quantity">1 <strong>&times;</strong></span>
@@ -898,13 +905,13 @@
                             </li>
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
-                                    <a href="product-details.html">
+                                    <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
                                         <img src="assets/img/cart/cart-2.jpg" alt="product">
                                     </a>
                                 </div>
                                 <div class="minicart-content">
                                     <h3 class="product-name">
-                                        <a href="product-details.html">Dozen White Botanical Linen Dinner Napkins</a>
+                                        <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">Dozen White Botanical Linen Dinner Napkins</a>
                                     </h3>
                                     <p>
                                         <span class="cart-quantity">1 <strong>&times;</strong></span>
