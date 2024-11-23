@@ -43,7 +43,7 @@
               Dashboard
               </p>
             </a>
-          </li>    
+          </li>
           <li class="nav-item">
             <a href="?act=danh-muc" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
@@ -58,8 +58,7 @@
                 Quản lí sản phẩm
               </p>
             </a>
-          </li>     
-          
+          </li>
           <li class="nav-item">
             <a href="?act=don-hang" class="nav-link">
             <!-- <i class="nav-icon fas fa-file-invoice-dollar"></i> -->
@@ -68,7 +67,54 @@
                 Đơn hàng
               </p>
             </a>
-          </li>  
+          </li>
+
+          <li class="nav-item">
+    <a href="" class="nav-link">
+        <i class="nav-icon fas fa-users-cog"></i> <!-- Thay đổi icon tại đây -->
+        <p>
+            Quản lý tài khoản
+        </p>
+        <i class="fas fa-angle-left right"></i>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="?act=list-tai-khoan-quan-tri" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                    Tài khoản quản trị
+                </p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+        <a href="?act=list-tai-khoan-khach-hang" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                    Tài khoản khách hàng
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                    Tài khoản cá nhân
+                </p>
+            </a>
+        </li>
+
+    </ul>
+</li>
+
+
+
+
+
+
+
+          
+          </li>         
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

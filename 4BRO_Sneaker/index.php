@@ -26,4 +26,8 @@ match ($act) {
     // 'san-pham' =>(new HomeController())->chitietSanPham() ,
     'chi-tiet-san-pham' =>(new HomeController())->chitietSanPham()
     // var_dump('macth'),die,
+    
+
+
+
 };
