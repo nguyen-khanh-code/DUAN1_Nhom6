@@ -75,7 +75,7 @@
                                     if
                                         <li class="user-hover">
                                             <a href="#">
-                                                <i class="pe-7s-user"><?=$taikhoan['ho_ten']?></i>
+                                                <i class="pe-7s-user"></i>
                                             </a>
                                             <ul class="dropdown-list">
                                                 <li><a href="<?= BASE_URL . '?act=login'?>">Đăng nhập</a></li>
