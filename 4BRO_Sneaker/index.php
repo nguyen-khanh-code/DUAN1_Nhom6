@@ -24,7 +24,10 @@ match ($act) {
     // 'danh-sach-sp' =>(new HomeController())->danhsachSanPham()   
     // BASE_URL/?act=danh-sach-sp
     // 'san-pham' =>(new HomeController())->chitietSanPham() ,
-    'chi-tiet-san-pham' =>(new HomeController())->chitietSanPham()
+    'chi-tiet-san-pham' =>(new HomeController())->chitietSanPham(),
+    'danh-sach-san-pham' =>(new HomeController())->danhsachSanPham(),
+    'thuong-hieu-san-pham'=>(new HomeController())->thuonghieuSanPham()
+
     // var_dump('macth'),die,
     
 
