@@ -94,9 +94,9 @@
                     Tài khoản khách hàng
                 </p>
             </a>
-        </li>
+        </li> 
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="?act=list-tai-khoan-khach-hang" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                     Tài khoản cá nhân
