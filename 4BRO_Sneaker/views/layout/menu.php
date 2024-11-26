@@ -27,23 +27,26 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li><a href="">Trang chủ</i></a>     </li>
-                                            <li><a href="">Thương hiệu</i></a>     </li>
-
-                                               
-                                    <li><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                    <!-- <li><a href="blog-list-left-sidebar.html">blog list left sidebar</a></li>
-                                                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">blog list right sidebar</a></li>
-                                                    <li><a href="blog-grid-full-width.html">blog grid full width</a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
+                                            <li><a href="<?= BASE_URL?>">Trang chủ</i></a>     </li>
+                                            <li><a href="">Thương hiệu</i></a> 
+                                            <ul class="dropdown">
+                                                    <li><a href="">Nike</a></li>
+                                                    <li><a href="blog-list-left-sidebar.html">Adidas</a></li>
+                                                    <li><a href="blog-right-sidebar.html">Converse</a></li>
+                                                    <li><a href="blog-list-right-sidebar.html">Gucci</a></li>
+                                                    <li><a href="blog-grid-full-width.html">Jordan</a></li>
+                                                    <!-- <li><a href="blog-details.html"></a></li>
                                                     <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
                                                     <li><a href="blog-details-audio.html">blog details audio</a></li>
                                                     <li><a href="blog-details-video.html">blog details video</a></li>
                                                     <li><a href="blog-details-image.html">blog details image</a></li> -->
                                                 </ul>
+                                        
+                                        </li>
+
+                                               
+                                    <li><a href="<?='?act=danh-sach-san-pham'?>">Sản phẩm</a>
+                                                
                                             </li>
                                             <li><a href="#">Giới thiệu</a></li>
                                             <li><a href="#">liên hệ</a></li>
@@ -69,13 +72,14 @@
                                 </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
+                                    if
                                         <li class="user-hover">
                                             <a href="#">
                                                 <i class="pe-7s-user"></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                                <li><a href="login-register.html">Đăng nhập</a></li>
-                                                <li><a href="login-register.html">Đăng ký</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=login'?>">Đăng nhập</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=register'?>">Đăng ký</a></li>
                                                 <li><a href="my-account.html">Tài khoản cuat tôi</a></li>
                                             </ul>
                                         </li>
