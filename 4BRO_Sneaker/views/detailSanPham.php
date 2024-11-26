@@ -1,12 +1,5 @@
 <?php require_once 'layout/header.php'; ?>
 <?php require_once 'layout/menu.php'; ?>
-
-
-
-
-
-
-
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -99,7 +92,9 @@
                                     <div class="quantity-cart-box d-flex align-items-center">
                                         <h6 class="option-title">Số lượng:</h6>
                                         <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1"></div>
+                                            <div class="pro-qty"><input type="text" value="1" disabled>                            
+                                        </div>
+                                           
                                         </div>
                                         <div class="action_link">
                                             <a class="btn btn-cart2" href="#">Thêm vào giỏ hàng</a>

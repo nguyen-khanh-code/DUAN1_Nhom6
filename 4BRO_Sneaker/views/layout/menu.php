@@ -69,13 +69,14 @@
                                 </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
+                                    if
                                         <li class="user-hover">
                                             <a href="#">
-                                                <i class="pe-7s-user"></i>
+                                                <i class="pe-7s-user"><?=$taikhoan['ho_ten']?></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                                <li><a href="login-register.html">Đăng nhập</a></li>
-                                                <li><a href="login-register.html">Đăng ký</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=login'?>">Đăng nhập</a></li>
+                                                <li><a href="<?= BASE_URL . '?act=register'?>">Đăng ký</a></li>
                                                 <li><a href="my-account.html">Tài khoản cuat tôi</a></li>
                                             </ul>
                                         </li>
