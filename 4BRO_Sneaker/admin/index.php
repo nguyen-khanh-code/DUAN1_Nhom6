@@ -5,6 +5,7 @@ session_start();
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
 
+
 // Require toàn bộ file Controllers
 require_once './controllers/adminDanhMucController.php';
 require_once './controllers/adminSanPhamController.php';
@@ -20,6 +21,10 @@ require_once './models/adminDonHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
+
+if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'login-admin' ){
+    checkLoginAdmin();
+}
 
 // Để bảo đảm tính chất chỉ gọi 1 hàm Controller để xử lý request, sử dụng match
 try {
@@ -57,16 +62,23 @@ try {
         'sua-khach-hang' => (new adminTaiKhoanController())->postEditKhachHang(),
         'chi-tiet-khach-hang' => (new adminTaiKhoanController())->detailKhachHang(),
 
+        // Router tai khoan ca nhan 
+
+        'form-sua-thong-tin-ca-nhan-quan-tri' => (new adminTaiKhoanController())->formEditCaNhanQuanTri(),
+        'sua-thong-tin-ca-nhan-quan-tri' => (new adminTaiKhoanController())->postEditCaNhanQuanTri(),
+
+
 
         // router quản đơn hàng
-'don-hang' => (new adminDonHangController())->danhsachDonHang(),
-'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
-'sua-don-hang' => (new adminDonHangController())->editDonHang(),
-'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang(),
+        'don-hang' => (new adminDonHangController())->danhsachDonHang(),
+        'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
+        'sua-don-hang' => (new adminDonHangController())->editDonHang(),
+        'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang(),
 
         // Route auth
         'login-admin' => (new adminTaiKhoanController())->formLogin(),
         'check-login-admin' => (new adminTaiKhoanController())->login(),
+        'logout-admin' => (new adminTaiKhoanController())->logout(),
         
 
         // Default case

@@ -45,7 +45,7 @@
                                     <td><?= $key + 1 ?></td>
                                     <td><?= htmlspecialchars($khachHang['ho_ten']) ?></td>
                                     <td>
-                                        <img class="form-control" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010" alt="Ảnh đại diện" style="width: 100px; height: auto; border: none; outline: none; background: transparent; box-shadow: none;">
+                                        <img class="form-control" src="<?= $khachHang['anh_dai_dien'] ? $khachHang['anh_dai_dien'] :  'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010' ?>" alt="Ảnh đại diện" style="width: 100px; height: auto; border: none; outline: none; background: transparent; box-shadow: none;">
                                     </td>
                                     <td><?= htmlspecialchars($khachHang['email']) ?></td>
                                     <td><?= htmlspecialchars($khachHang['so_dien_thoai'] ?? 'Chưa cập nhật') ?></td>
