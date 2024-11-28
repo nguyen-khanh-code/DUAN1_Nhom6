@@ -168,7 +168,7 @@ class adminSanPham
     public function getBinhLuanFromSanPham($id)
 {
     try {
-        $sql = 'SELECT binh_luans.*, san_phams.ten_san_pham, tai_khoans.ho_ten
+        $sql = 'SELECT binh_luans.*, san_phams.ten_san_pham, tai_khoans.ho_ten,tai_khoans.anh_dai_dien
         FROM binh_luans
         INNER JOIN san_phams ON binh_luans.san_pham_id = san_phams.id
         INNER JOIN tai_khoans ON binh_luans.tai_khoan_id = tai_khoans.id

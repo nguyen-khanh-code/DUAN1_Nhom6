@@ -33,7 +33,9 @@
     <link rel="stylesheet" href="assets/css/plugins/jqueryui.min.css">
     <!-- main style css -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <style> .star { font-size: 24px; cursor: pointer; color: gray; } .star.checked { color: gold; } </style>
+    <style> .star { font-size: 24px; cursor: pointer; color: gray; } .star.checked { color: gold; } 
+        
+    </style>
 </head>
 
 <body>
