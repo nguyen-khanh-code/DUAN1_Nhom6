@@ -152,5 +152,18 @@ class  adminTaiKhoan
                 return false;
             }
         }
+    //     public function destroyBinhLuan($id_khach_hang)
+    // {
+    //     try {
+    //         $sql = 'DELETE FROM binh_luans WHERE id=:id';
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->execute([
+    //             ':id' => $id_khach_hang
+    //         ]);
+    //         return $stmt->fetch();
+    //     } catch (Exception $e) {
+    //         echo "loi" . $e->getMessage();
+    //     }
+    // }
     
 }
