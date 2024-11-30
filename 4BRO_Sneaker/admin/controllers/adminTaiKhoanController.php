@@ -221,7 +221,17 @@ class adminTaiKhoanController {
 
         require_once './views/taikhoan/khachhang/detailKhachHang.php';
     }
-    
+    // public function deleteBinhLuan()
+    // {
+    //     $id_khach_hang = $_GET['id_khach_hang'];
+
+    //     $listBinhLuan = $this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
+    //     if ($listBinhLuan) {
+    //         $this->modelSanPham->destroyBinhLuan($id_khach_hang);
+    //     }
+    //     header("location:".'?act=san-pham');
+    //     exit();
+    // }
 
 
     public function formLogin(){
