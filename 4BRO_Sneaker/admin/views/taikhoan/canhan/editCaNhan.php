@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quản lý tài khoản khách hàng</h1>
+          <h1>Quản lý tài khoản cá nhân</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -22,99 +22,171 @@
 
   <!-- Main Content -->
   <section class="content">
-    <div class="card card-primary">
-      <div class="card-header">
-        <h3 class="card-title">Sửa thông tin tài khoản khách hàng: 
-          <?= isset($khachHang['ho_ten']) ? htmlspecialchars($khachHang['ho_ten'], ENT_QUOTES, 'UTF-8') : 'N/A'; ?>
-        </h3>
+  <div class="container">
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="<?= BASE_URL_ADMIN . $thongTin['anh_dai_dien']; ?>"  style="width: 100px" class="avatar img-circle" alt="avatar" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010' ">
+          <h6 class="mt-2">Họ tên: <?= $thongTin['ho_ten'] ?> </h6>
+          <h6 class="mt-2">Chức vụ: <?= $thongTin['chuc_vu_id'] ?> </h6>
+          
+        </div>
       </div>
-      <!-- Form Start -->
-      <form method="POST" action="<?= BASE_URL_ADMIN . '?act=sua-khach-hang' ?>">
-        <input type="hidden" name="khach_hang_id" value="<?= isset($khachHang['id']) ? htmlspecialchars($khachHang['id'], ENT_QUOTES, 'UTF-8') : ''; ?>">
+      
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+      <form method="POST" action="<?= BASE_URL_ADMIN . '?act=sua-thong-tin-ca-nhan-quan-tri' ?>">
+    <input type="hidden" name="quan_tri_id" value="<?= isset($quanTri['id']) ? htmlspecialchars($quanTri['id'], ENT_QUOTES, 'UTF-8') : ''; ?>">
+    <?php if (isset($_SESSION['success'])) { ?>
+<div class="alert alert-success alert-dismissable">
+    <a class="panel-close close" data-dismiss="alert">×</a>
+    <i class="fa fa-check"></i> <?= $_SESSION['success']; ?>
+</div>
+<?php 
+// Xóa thông báo khỏi session sau khi hiển thị
+unset($_SESSION['success']);
+?>
+<?php } ?>
 
-        <div class="card-body">
-          <!-- Họ tên -->
-          <div class="form-group">
+    <div class="card-body">
+        <!-- Họ tên -->
+        <div class="form-group">
             <label>Họ tên</label>
             <input type="text" class="form-control" name="ho_ten" 
-                   value="<?= isset($khachHang['ho_ten']) ? htmlspecialchars($khachHang['ho_ten'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($quanTri['ho_ten']) ? htmlspecialchars($quanTri['ho_ten'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập họ tên">
             <?php if (isset($_SESSION['error']['ho_ten'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
             <?php } ?>
-          </div>
+        </div>
 
-          <!-- Email -->
-          <div class="form-group">
+        <!-- Email -->
+        <div class="form-group">
             <label>Email</label>
             <input type="email" class="form-control" name="email" 
-                   value="<?= isset($khachHang['email']) ? htmlspecialchars($khachHang['email'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($quanTri['email']) ? htmlspecialchars($quanTri['email'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập email">
             <?php if (isset($_SESSION['error']['email'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
             <?php } ?>
-          </div>
+        </div>
 
-          <!-- Số điện thoại -->
-
-          <div class="form-group">
+        <!-- Số điện thoại -->
+        <div class="form-group">
             <label>Số điện thoại</label>
             <input type="text" class="form-control" name="so_dien_thoai" 
-                   value="<?= isset($khachHang['so_dien_thoai']) ? htmlspecialchars($khachHang['so_dien_thoai'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($quanTri['so_dien_thoai']) ? htmlspecialchars($quanTri['so_dien_thoai'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập số điện thoại">
             <?php if (isset($_SESSION['error']['so_dien_thoai'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['so_dien_thoai'] ?></p>
             <?php } ?>
-          </div>
+        </div>
 
-
-          <div class="form-group">
+        <!-- Ngày sinh -->
+        <div class="form-group">
             <label>Ngày sinh</label>
             <input type="date" class="form-control" name="ngay_sinh" 
-                   value="<?= isset($khachHang['ngay_sinh']) ? htmlspecialchars($khachHang['ngay_sinh'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
-                   placeholder="Nhập ngay sinh">
+                   value="<?= isset($quanTri['ngay_sinh']) ? htmlspecialchars($quanTri['ngay_sinh'], ENT_QUOTES, 'UTF-8') : ''; ?>">
             <?php if (isset($_SESSION['error']['ngay_sinh'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['ngay_sinh'] ?></p>
             <?php } ?>
-          </div>
+        </div>
 
-          <div class="form-group">
+        <!-- Giới tính -->
+        <div class="form-group">
             <label>Giới tính</label>
             <select name="gioi_tinh" id="inputStatus" class="form-control custom-select">
-              <option <?= isset($khachHang['gioi_tinh']) && $khachHang['gioi_tinh'] == 1 ? 'selected' : '' ?> value="1">Nam</option>
-              <option <?= isset($khachHang['gioi_tinh']) && $khachHang['gioi_tinh'] != 1 ? 'selected' : '' ?> value="2">Nữ</option>
+                <option <?= isset($quanTri['gioi_tinh']) && $quanTri['gioi_tinh'] == 1 ? 'selected' : '' ?> value="1">Nam</option>
+                <option <?= isset($quanTri['gioi_tinh']) && $quanTri['gioi_tinh'] != 1 ? 'selected' : '' ?> value="2">Nữ</option>
             </select>
-          </div>
+        </div>
 
-
-          <div class="form-group">
+        <!-- Địa chỉ -->
+        <div class="form-group">
             <label>Địa chỉ</label>
             <input type="text" class="form-control" name="dia_chi" 
-                   value="<?= isset($khachHang['dia_chi']) ? htmlspecialchars($khachHang['dia_chi'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
+                   value="<?= isset($quanTri['dia_chi']) ? htmlspecialchars($quanTri['dia_chi'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
                    placeholder="Nhập địa chỉ">
             <?php if (isset($_SESSION['error']['dia_chi'])){ ?> 
                 <p class="text-danger"><?= $_SESSION['error']['dia_chi'] ?></p>
             <?php } ?>
-          </div>
+        </div>
 
-          <!-- Trạng thái tài khoản -->
-          <div class="form-group">
+        <!-- Trạng thái tài khoản -->
+        <div class="form-group">
             <label for="inputStatus">Trạng thái tài khoản</label>
             <select name="trang_thai" id="inputStatus" class="form-control custom-select">
-              <option <?= isset($khachHang['trang_thai']) && $khachHang['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Active</option>
-              <option <?= isset($khachHang['trang_thai']) && $khachHang['trang_thai'] != 1 ? 'selected' : '' ?> value="2">Inactive</option>
+                <option <?= isset($quanTri['trang_thai']) && $quanTri['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Active</option>
+                <option <?= isset($quanTri['trang_thai']) && $quanTri['trang_thai'] != 1 ? 'selected' : '' ?> value="2">Inactive</option>
             </select>
-          </div>
-
         </div>
-        <!-- /.card-body -->
-
-        <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-          <a href="?act=list-tai-khoan-quan-tri" class="btn btn-secondary">Quay lại</a>
-        </div>  
-      </form>
     </div>
+    <!-- /.card-body -->
+    <div class="form-group">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" value="Lưu thay đổi">
+        </div>
+    </div>
+</form>
+
+
+
+
+          <hr>
+          <h3>Đổi mật khẩu</h3>
+          <?php if (isset($_SESSION['success'])) { ?>
+          <div class="alert alert-info alert-dismissable">
+              <a class="panel-close close" data-dismiss="alert">×</a> 
+              <i class="fa fa-coffee"></i>
+              <?= $_SESSION['success']; ?>
+          </div>
+          <?php 
+          // Xóa thông báo khỏi session sau khi hiển thị
+          unset($_SESSION['success']);
+          ?>
+      <?php } ?>
+
+
+          <form action="<?= BASE_URL_ADMIN . '?act=sua-mat-khau-ca-nhan-quan-tri' ?>" method="post">
+          <div class="form-group">
+            <label class="col-md-3 control-label">Mật khẩu cũ:</label>
+            <div class="col-md-12">
+              <input class="form-control" type="password" name="old_pass" value="">
+              <?php if (isset($_SESSION['error']['old_pass'])) { ?>
+                  <p class="text-danger"><?= $_SESSION['error']['old_pass'] ?></p>
+                  <?php } ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Mật khẩu mới:</label>
+            <div class="col-md-12">
+              <input class="form-control" type="password" name="new_pass" value="">
+              <?php if (isset($_SESSION['error']['new_pass'])) { ?>
+                  <p class="text-danger"><?= $_SESSION['error']['new_pass'] ?></p>
+                  <?php } ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Nhập lại mật khẩu mới:</label>
+            <div class="col-md-12">
+              <input class="form-control" type="password" name="confirm_pass" value="">
+              <?php if (isset($_SESSION['error']['confirm_pass'])) { ?>
+                  <p class="text-danger"><?= $_SESSION['error']['confirm_pass'] ?></p>
+                  <?php } ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-12">
+              <input type="submit" class="btn btn-primary" value="Lưu thay đổi">
+            </div>
+          </div>
+          </form>
+      </div>
+  </div>
+</div>
+<hr>
   </section>
 </div>
 <!-- /.content-wrapper -->

@@ -13,7 +13,7 @@
           <img src="./assets/dist/img/anhthe.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nguyễn Duy Khánh</a>
+          <a href="#" class="d-block"><?= $_SESSION['user_admin'] ?></a>
         </div>
       </div>
 
@@ -96,7 +96,7 @@
             </a>
         </li> 
         <li class="nav-item">
-            <a href="?act=list-tai-khoan-khach-hang" class="nav-link">
+            <a href="?act=form-sua-thong-tin-ca-nhan-quan-tri" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                     Tài khoản cá nhân

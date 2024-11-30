@@ -66,6 +66,8 @@ try {
 
         'form-sua-thong-tin-ca-nhan-quan-tri' => (new adminTaiKhoanController())->formEditCaNhanQuanTri(),
         'sua-thong-tin-ca-nhan-quan-tri' => (new adminTaiKhoanController())->postEditCaNhanQuanTri(),
+        
+        'sua-mat-khau-ca-nhan-quan-tri' => (new adminTaiKhoanController())->postEditMatKhauCaNhan(),
 
 
 
