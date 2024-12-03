@@ -238,32 +238,177 @@ class adminTaiKhoanController {
         require_once './views/auth/formLogin.php';
 
         $this->deleteSessionError();
+        exit();
 
     }
 
-    public function login(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //lay email va passs
+    public function login() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Lấy thông tin email và password từ form
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+        // Kiểm tra đăng nhập
+        $user = $this->modelTaiKhoan->checkLogin($email, $password);
 
-            $user = $this->modelTaiKhoan->checkLogin($email, $password);
-
-            if($user ==  $email) {
-                $_SESSION['user_admin'] = $user;
-                header("Location: " . BASE_URL_ADMIN);
-                exit();
-            } else {
-                $_SESSION['error'] = $user;
-
-                // var_dump($_SESSION['error']);die; 
-
-                $_SESSION['flash'] = true;
-
-                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-                exit();
-            }
+        if ($user) { // Đăng nhập thành công
+            $_SESSION['user_admin'] = $user; // Lưu thông tin người dùng
+            header("Location: " . BASE_URL_ADMIN);
+            exit();
+        } else { // Đăng nhập thất bại
+            $_SESSION['error'] = "Email hoặc mật khẩu không đúng!";
+            $_SESSION['flash'] = true;
+            header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+            exit();
         }
     }
 }
+
+
+    public function logout(){
+            if(isset($_SESSION['user_admin'])) {
+                unset($_SESSION['user_admin']);
+                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+            }
+    }
+
+    public function formEditCaNhanQuanTri(){
+        $email = $_SESSION['user_admin'];
+        $thongTin = $this->modelTaiKhoan->getTaiKhoanformEmail($email);
+        // var_dump($thongTin);die;
+        require_once './views/taikhoan/canhan/editCaNhan.php';
+        $this->deleteSessionError();
+    }
+
+    public function postEditMatKhauCaNhan() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $old_pass = $_POST['old_pass'];
+            $new_pass = $_POST['new_pass'];
+            $confirm_pass = $_POST['confirm_pass'];
+    
+            $user = $this->modelTaiKhoan->getTaiKhoanformEmail($_SESSION['user_admin']);
+            $checkPass = password_verify($old_pass, $user['mat_khau']);
+    
+            $errors = [];
+    
+            if (!$checkPass) {
+                $errors['old_pass'] = 'Mật khẩu cũ không đúng';
+            }
+    
+            if ($new_pass !== $confirm_pass) {
+                $errors['confirm_pass'] = 'Mật khẩu nhập lại không đúng';
+            }
+    
+            if (empty($old_pass)) {
+                $errors['old_pass'] = 'Vui lòng điền trường dữ liệu này';
+            }
+            if (empty($new_pass)) {
+                $errors['new_pass'] = 'Vui lòng điền trường dữ liệu này';
+            }
+            if (empty($confirm_pass)) {
+                $errors['confirm_pass'] = 'Vui lòng điền trường dữ liệu này';
+            }
+    
+            $_SESSION['error'] = $errors;
+    
+            if (empty($errors)) {
+                $hashPass = password_hash($new_pass, PASSWORD_BCRYPT);
+                $status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
+                if ($status) {
+                    $_SESSION['success'] = "Đã đổi mật khẩu thành công";
+                    $_SESSION['flash'] = true;
+                    header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
+                    exit();
+                }
+            } else {
+                $_SESSION['flash'] = true;
+                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
+                exit();
+            }
+            
+        }
+    }
+    
+    public function postEditCaNhanQuanTri() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Lấy dữ liệu từ form
+            $quan_tri_id = $_POST['quan_tri_id'] ?? '';
+            $ho_ten = $_POST['ho_ten'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $so_dien_thoai = $_POST['so_dien_thoai'] ?? '';
+            $ngay_sinh = $_POST['ngay_sinh'] ?? '';
+            $gioi_tinh = $_POST['gioi_tinh'] ?? '';
+            $dia_chi = $_POST['dia_chi'] ?? '';
+            $trang_thai = $_POST['trang_thai'] ?? '';
+    
+            // Lưu lại dữ liệu cũ vào session để hiển thị lại
+            $_SESSION['old'] = [
+                'ho_ten' => $ho_ten,
+                'email' => $email,
+                'so_dien_thoai' => $so_dien_thoai,
+                'ngay_sinh' => $ngay_sinh,
+                'gioi_tinh' => $gioi_tinh,
+                'dia_chi' => $dia_chi,
+                'trang_thai' => $trang_thai,
+            ];
+    
+            // Kiểm tra lỗi
+            $errors = [];
+    
+            if (empty($ho_ten)) {
+                $errors['ho_ten'] = 'Tên người dùng không được để trống';
+            }
+            if (empty($email)) {
+                $errors['email'] = 'Email người dùng không được để trống';
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = 'Email không hợp lệ';
+            }
+    
+            // Nếu có lỗi, lưu lỗi vào session và điều hướng lại form
+            if (!empty($errors)) {
+                $_SESSION['error'] = $errors;
+                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
+                exit();
+            }
+            if ($updateSuccess) {
+                $_SESSION['success'] = 'Cập nhật thông tin cá nhân thành công!';
+                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
+                exit();
+            }
+            
+    
+            // Không có lỗi, tiến hành cập nhật thông tin
+            $user = $this->modelTaiKhoan->getTaiKhoanformEmail($_SESSION['user_admin']);
+            $this->modelTaiKhoan->updateThongTinCaNhan(
+                $user['id'], 
+                $ho_ten, 
+                $email, 
+                $so_dien_thoai, 
+                $ngay_sinh, 
+                $gioi_tinh, 
+                $dia_chi, 
+                $trang_thai
+            );
+    
+            // Xóa dữ liệu cũ và lỗi khỏi session
+            unset($_SESSION['old'], $_SESSION['error']);
+    
+            // Lưu thông báo thành công và điều hướng lại form
+            $_SESSION['success'] = "Thông tin cá nhân đã được cập nhật thành công";
+            header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
+            exit();
+        }
+    }
+    
+    
+        
+
+    
+}
+
+
+
+    
+
+
+

@@ -183,7 +183,7 @@ class HomeController
                 header("Location: " . BASE_URL . '?act=view-profile');
                 exit();
             } 
-            var_dump($oldPassword);die;
+            // var_dump($oldPassword);die;
             $taiKhoan = new TaiKhoan();
             $user = $taiKhoan->getUserById($userId);
             if ($user && password_verify($oldPassword, $user['mat_khau'])) {
