@@ -71,4 +71,5 @@ class SanPham
         $stmt->execute(['danh_muc_id' => $danhMucId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 }

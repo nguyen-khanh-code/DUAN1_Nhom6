@@ -31,7 +31,8 @@
                             <div class="login-reg-form-wrap">
                                 <h5 class="text-center">ĐĂNG NHẬP</h5>
                                 <?php if(isset($_SESSION['error'])) { ?>
-                                <p class="text-danger login-box-msg text-center"><?= $_SESSION['error']; unset($_SESSION['error']);?></p>
+                                <p class="text-danger login-box-msg text-center"><?= $_SESSION['error']; 
+                                unset($_SESSION['error']);?></p>
                                 <?php }else{ ?>
                                 <p class="login-box-msg text-center">Vui lòng đăng nhập</p>
                                 <?php } ?>

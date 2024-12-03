@@ -6,10 +6,18 @@ class HomeController
     public $modelDanhMuc;
     public $modelTaiKhoan;
     public $authController;
+ 
+
+    
+
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
         $this->modelDanhMuc = new DanhMuc();
+      
+
+        
+
 
         $this->modelTaiKhoan = new TaiKhoan();
         $this->authController = new AuthController();
@@ -149,7 +157,11 @@ class HomeController
         $userId = $_SESSION['user_id'];
         $taiKhoan = new TaiKhoan();
         $user = $taiKhoan->getUserById($userId);
+        if($user){
+
         require_once './views/thongTinCaNhan.php';
+        deletesessionError();
+    }
     }
     public function updateProfile()
     {
@@ -159,7 +171,7 @@ class HomeController
             $email = $_POST['email'];
             $anh_dai_dien = $_FILES['anh_dai_dien']['name'];
             if ($anh_dai_dien) {
-                $targetDir = "uploads/";
+                $targetDir = "../uploads/";
                 $targetFile = $targetDir . basename($anh_dai_dien);
                 move_uploaded_file($_FILES['anh_dai_dien']['tmp_name'], $targetFile);
             } else {
@@ -167,6 +179,18 @@ class HomeController
             }
             $taiKhoan = new TaiKhoan();
             $taiKhoan->updateUser($userId, $ho_ten, $email, $anh_dai_dien);
+
+ 
+            $errors = [];
+           
+            if (empty($ho_ten)) {
+                $errors['ho_ten'] = 'Vui lòng nhập họ tên';
+            }
+            if (empty($email)) {
+                $errors['email'] = 'Vui lòng nhập email';
+            }
+                 $_SESSION['error'] = $errors; 
+
             header("Location: " . BASE_URL . '?act=view-profile');
             exit();
         }
@@ -183,7 +207,7 @@ class HomeController
                 header("Location: " . BASE_URL . '?act=view-profile');
                 exit();
             } 
-            var_dump($oldPassword);die;
+            // var_dump($oldPassword);die;
             $taiKhoan = new TaiKhoan();
             $user = $taiKhoan->getUserById($userId);
             if ($user && password_verify($oldPassword, $user['mat_khau'])) {
@@ -205,4 +229,6 @@ class HomeController
         $danhMuc = $this->modelDanhMuc->getDanhMucById($danhMucId);
         require_once './views/thuonghieuSanPham.php';
     }
+    
+
 }

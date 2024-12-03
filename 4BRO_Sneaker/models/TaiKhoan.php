@@ -27,6 +27,8 @@ class  TaiKhoan
             return false;
         }
     }
+
+    
     public function register($ho_ten, $email, $mat_khau, $chuc_vu_id = 2, $trang_thai = 1)
     {
 
