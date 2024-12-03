@@ -24,11 +24,14 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-      <div class="col-6">
-          <img src="<?php echo BASE_URL . $khachHang['anh_dai_dien']; ?>" 
-              style="width: 70%" alt="Ảnh đại diện"
-              onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010'">
-      </div>
+      <?php
+          $anhDaiDien = !empty($khachHang['anh_dai_dien']) 
+              ? BASE_URL . $khachHang['anh_dai_dien'] 
+              : 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010';
+          ?>
+          <div class="col-6">
+              <img src="<?php echo $anhDaiDien; ?>" style="width: 70%" alt="Ảnh đại diện">
+          </div>
         <div class="col-6">
           <div class="container">
           <table class="table table-borderless">

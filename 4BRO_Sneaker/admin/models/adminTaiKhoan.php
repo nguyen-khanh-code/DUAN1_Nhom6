@@ -126,8 +126,10 @@ class  adminTaiKhoan
             echo "Lỗi: " . $e->getMessage();
         }
     }
+    
 
-        public function checkLogin($email, $mat_khau) {
+  
+    public function checkLogin($email, $mat_khau) {
             try {
                 $sql = "SELECT * FROM tai_khoans WHERE email = :email";
                 $stmt = $this->conn->prepare($sql);
@@ -166,4 +168,53 @@ class  adminTaiKhoan
     //     }
     // }
     
+
+    public function getTaiKhoanformEmail($email){
+        try{
+            $sql = 'SELECT * FROM tai_khoans WHERE email = :email';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':email'=> $email
+        ]);
+        return $stmt->fetch();
+        }catch (Exception $e) {
+        echo "loi" . $e->getMessage();
+        }
+    }
+        
+    
+    
+    public function updateThongTinCaNhan($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai) {
+        $sql = "UPDATE tai_khoans SET 
+                    ho_ten = :ho_ten, 
+                    email = :email, 
+                    so_dien_thoai = :so_dien_thoai, 
+                    ngay_sinh = :ngay_sinh, 
+                    gioi_tinh = :gioi_tinh, 
+                    dia_chi = :dia_chi, 
+                    trang_thai = :trang_thai 
+                WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':ho_ten', $ho_ten);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
+        $stmt->bindParam(':ngay_sinh', $ngay_sinh);
+        $stmt->bindParam(':gioi_tinh', $gioi_tinh);
+        $stmt->bindParam(':dia_chi', $dia_chi);
+        $stmt->bindParam(':trang_thai', $trang_thai);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+    
+    
 }
+
+
+    
+
+
+
+
+    
+
+
