@@ -130,30 +130,32 @@ class  adminTaiKhoan
 
   
     public function checkLogin($email, $mat_khau) {
-            try {
-                $sql = "SELECT * FROM tai_khoans WHERE email = :email";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute(['email' => $email]);
-                $user = $stmt->fetch();
-        
-                if ($user && password_verify($mat_khau, $user['mat_khau'])) {
-                    if ($user['chuc_vu_id'] == 1) {
-                        if ($user['trang_thai'] == 1) {
-                            return $user['email'];
-                        } else {
-                            return "Tài khoản bị cấm";
-                        }
+        try {
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':email' => $email]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            // Kiểm tra nếu người dùng tồn tại và mật khẩu đúng
+            if ($user && password_verify($mat_khau, $user['mat_khau'])) {
+                if ($user['chuc_vu_id'] == 1) {
+                    if ($user['trang_thai'] == 1) {
+                        return $user;
                     } else {
-                        return "Tài khoản không có quyền đăng nhập";
+                        return "Tài khoản bị cấm";
                     }
                 } else {
-                    return "Bạn nhập sai thông tin tài khoản hoặc mật khẩu";
+                    return "Tài khoản không có quyền đăng nhập";
                 }
-            } catch (\Exception $e) {
-                echo "Lỗi: " . $e->getMessage();
-                return false;
+            } else {
+                return "Email hoặc mật khẩu không đúng";
             }
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+            return false;
         }
+    }
+    
     //     public function destroyBinhLuan($id_khach_hang)
     // {
     //     try {
@@ -208,11 +210,6 @@ class  adminTaiKhoan
     
     
 }
-
-
-    
-
-
 
 
     
