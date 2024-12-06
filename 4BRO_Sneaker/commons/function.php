@@ -68,3 +68,53 @@ function checkLoginAdmin(){
 }
 
 // debug
+
+function getStatusClassSau($trang_thai_id) {
+    $trang_thai_id = $trang_thai_id + 1;
+    switch ($trang_thai_id) {
+        case 1:
+            return 'danger'; // Đỏ
+        case 2:
+            return 'success'; // Xanh lá
+        case 3:
+            return 'warning'; // Vàng
+        case 4:
+            return 'primary'; // Xanh dương
+        case 5:
+            return 'info'; // Xanh nhạt
+        case 6:
+            return 'secondary'; // Xám
+        case 7:
+            return 'success'; // Xanh lá
+        case 8:
+            return 'secondary'; // Xám đậm
+        case 9:
+            return 'danger'; // Đỏ
+        default:
+            return 'dark'; // Mặc định
+    }
+}
+function getStatusClass($trang_thai_id) {
+    switch ($trang_thai_id) {
+        case 1:
+            return 'danger'; // Đỏ
+        case 2:
+            return 'success'; // Xanh lá
+        case 3:
+            return 'warning'; // Vàng
+        case 4:
+            return 'primary'; // Xanh dương
+        case 5:
+            return 'info'; // Xanh nhạt
+        case 6:
+            return 'secondary'; // Xám
+        case 7:
+            return 'success'; // Xanh lá
+        case 8:
+            return 'secondary'; // Xám đậm
+        case 9:
+            return 'danger'; // Đỏ
+        default:
+            return 'dark'; // Mặc định
+    }
+}
