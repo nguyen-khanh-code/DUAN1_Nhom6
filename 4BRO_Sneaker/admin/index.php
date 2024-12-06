@@ -77,10 +77,7 @@ try {
         'chi-tiet-don-hang' => (new AdminDonHangController())->chiTietDonHangId(),
         'huy-don-hang' => (new AdminDonHangController())->huyDonHangId(),
         'cap-nhat-don-hang' => (new AdminDonHangController())->capNhatDonHangId(),
-        // 'don-hang' => (new adminDonHangController())->danhsachDonHang(),
-        // 'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
-        // 'sua-don-hang' => (new adminDonHangController())->editDonHang(),
-        // 'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang(),
+ 
 
         // Route mã giảm giá
         'list-ma-giam-gia' => (new AdminMaGiamController())->listMaGiamGia(),
