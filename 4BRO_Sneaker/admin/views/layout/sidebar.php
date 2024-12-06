@@ -9,13 +9,14 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="./assets/dist/img/anhthe.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"><?= $_SESSION['user_admin'] ?></a>
-        </div>
-      </div>
+          <div class="image">
+          <img src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010' class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+          <a href="#" class="d-block"><?= $_SESSION['user_name'] ?></a>
+          </div>
+       </div>
+
 
 
       <!-- SidebarSearch Form -->
@@ -36,8 +37,8 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-               <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="?act=danh-muc" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
               Dashboard

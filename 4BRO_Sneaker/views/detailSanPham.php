@@ -73,17 +73,23 @@
                                         <span><?= $sanpham['so_luong']  ?> Trong kho</span>
                                     </div>
 
-                                    <div class="quantity-cart-box d-flex align-items-center">
-                                        <h6 class="option-title">Số lượng:</h6>
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1" disabled>
+                                    <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <h6 class="option-title">Số lượng:</h6>
+                                            <div class="quantity">
+                                                <input type="hidden" name="san_pham_id" value="<?= $sanPham['id'];?>">
+                                                <!-- Hidden input for quantity -->
+                                                <input type="hidden" name="so_luong" value="1">
+                                                <div class="pro-qty">
+                                                    <input type="text" value="1" disabled>
+                                                </div>
                                             </div>
+                                            <div class="action_link">
+                                                <button class="btn btn-cart2">Thêm vào giỏ hàng</button>
+                                            </div>
+                                        </div>
+                                    </form>
 
-                                        </div>
-                                        <div class="action_link">
-                                            <a class="btn btn-cart2" href="#">Thêm vào giỏ hàng</a>
-                                        </div>
-                                    </div>
                                     <div class="pro-size">
                                         <h6 class="option-title">size :</h6>
                                         <select class="nice-select">

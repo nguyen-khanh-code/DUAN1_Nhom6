@@ -114,7 +114,9 @@ match ($act) {
     // tài khoản cá nhân
    'view-profile' =>(new HomeController())->viewProfile(),
    'update-profile'=> (new HomeController())->updateProfile(),
-   'change-password'=> (new HomeController())->changePassword()
+   'change-password'=> (new HomeController())->changePassword(),
+
+
 
 
 };

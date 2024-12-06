@@ -69,4 +69,17 @@ class  TaiKhoan
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['mat_khau' => $hashedPassword, 'id' => $id]);
     }
+
+    public function getTaiKhoanFromEmail($email){
+        try{
+            $sql = 'SELECT * FROM tai_khoans WHERE email = :email';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':email'=> $email
+        ]);
+        return $stmt->fetch();
+        }catch (Exception $e) {
+        echo "loi" . $e->getMessage();
+        }
+    }
 };
