@@ -111,7 +111,7 @@ include './views/layout/navbar.php'
                 </address>
               </div>
               <div class="col-sm-4 invoice-col">
-                Người nhận
+               Mã vận đơn
                 <address>
                   <strong>Mã đơn hàng: <?= $donHang['ma_don_hang'] ?></strong><br>
                   <b> Tổng tiền: </b><?= $donHang['tong_tien'] ?><br>
@@ -170,15 +170,15 @@ include './views/layout/navbar.php'
                   <table class="table">
                     <tr>
                       <th style="width:50%">Thành tiền:</th>
-                      <td><?= $tong_tien ?>$</td>
+                      <td><?=formatPrice($tong_tien )?>đ</td>
                     </tr>
                     <tr>
                       <th>Vận chuyển:</th>
-                      <td>200.000$</td>
+                      <td>30.000đ</td>
                     </tr>
                     <tr>
                       <th>Tổng tiền:</th>
-                      <td><?= $tong_tien + 200.000 ?>$</td>
+                      <td><?= formatPrice($tong_tien + 30000 )?>đ</td>
                     </tr>
                   </table>
                 </div>
