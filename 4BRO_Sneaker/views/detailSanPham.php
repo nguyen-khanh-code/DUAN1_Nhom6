@@ -73,28 +73,32 @@
                                         <span><?= $sanpham['so_luong']  ?> Trong kho</span>
                                     </div>
 
-                                    <div class="quantity-cart-box d-flex align-items-center">
-                                        <h6 class="option-title">Số lượng:</h6>
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1" disabled>
+                                    <form action="<?= BASE_URL . '?act=add-GioHang' ?>" method="post">
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <h6 class="option-title">Số lượng:</h6>
+                                            <div class="quantity">
+                                                <input type="hidden" name="san_pham_id" value="<?= $sanpham['id']; ?>">
+                                                <div class="pro-qty"><input type="text" value="1" name="so_luong">
+                                                </div>
+
                                             </div>
-
+                                            <div class="action_link">
+                                                <button class="btn btn-cart2">Thêm vào giỏ hàng</button>
+                                            </div>
                                         </div>
-                                        <div class="action_link">
-                                            <a class="btn btn-cart2" href="#">Thêm vào giỏ hàng</a>
-                                        </div>
-                                    </div>
-                                    <div class="pro-size">
-                                        <h6 class="option-title">size :</h6>
-                                        <select class="nice-select">
-                                            <option>38</option>
-                                            <option>39</option>
-                                            <option>40</option>
-                                            <option>41</option>
-                                            <option>42</option>
 
-                                        </select>
-                                    </div>
+                                        <div class="pro-size">
+                                            <h6 class="option-title">size :</h6>
+                                            <select class="nice-select">
+                                                <option>38</option>
+                                                <option>39</option>
+                                                <option>40</option>
+                                                <option>41</option>
+                                                <option>42</option>
+
+                                            </select>
+                                        </div>
+                                    </form>
                                     <p class="pro-desc"><?= $sanpham['mo_ta'] ?></p>
 
                                 </div>
@@ -104,54 +108,60 @@
 
                         <!-- product details reviews start -->
                         <div class="product-details-reviews section-padding pb-0">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="product-review-info">
-                <ul class="nav review-tab">
-                    <li>
-                        <a class="active" data-bs-toggle="tab" href="#tab_three">Bình luận (<?= $countComment ?>)</a>
-                    </li>
-                </ul>
-                <div class="tab-content reviews-tab">
-                    <div class="form-control" id="tab_three">
-                        <div class="comments-list">
-                            <?php foreach ($listBinhLuan as $binhluan) : ?>
-                                <?php if ($binhluan['trang_thai'] == 1) : // Kiểm tra nếu bình luận không bị ẩn ?>
-                                    <div class="total-reviews">
-                                        <div class="rev-avatar">
-                                            <img src="<?= htmlspecialchars($binhluan['anh_dai_dien']) ?>" alt="" style="width: 55px;height:70px;">
-                                        </div>
-                                        <div class="review-box">
-                                            <div class="post-author">
-                                                <p><span><?= htmlspecialchars($binhluan['ho_ten']) ?> </span> <?= htmlspecialchars($binhluan['ngay_dang']) ?></p>
-                                            </div>
-                                            <p><?= htmlspecialchars($binhluan['noi_dung']) ?></p>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="product-review-info">
+                                        <ul class="nav review-tab">
+                                            <li>
+                                                <a class="active" data-bs-toggle="tab" href="#tab_three">Bình luận (<?= $countComment ?>)</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content reviews-tab">
+                                            <div class="form-control" id="tab_three">
+                                                <div class="comments-list">
+                                                    <?php foreach ($listBinhLuan as $binhluan) : ?>
+                                                        <?php if ($binhluan['trang_thai'] == 1) : // Kiểm tra nếu bình luận không bị ẩn 
+                                                        ?>
+                                                            <div class="total-reviews">
+                                                                <div class="rev-avatar">
+                                                                    <img src="<?= htmlspecialchars($binhluan['anh_dai_dien']) ?>" alt="" style="width: 55px;height:70px;">
+                                                                </div>
+                                                                <div class="review-box">
+                                                                    <div class="post-author">
+                                                                        <p><span><?= htmlspecialchars($binhluan['ho_ten']) ?> </span> <?= htmlspecialchars($binhluan['ngay_dang']) ?></p>
+                                                                    </div>
+                                                                    <p><?= htmlspecialchars($binhluan['noi_dung']) ?></p>
+                                                                </div>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </div>
 
-                        <form action="<?= BASE_URL . '?act=post-comment' ?>" method="post" class="review-form">
-                            <?php if (isset($_SESSION['user_id'])): ?>
-                                <input type="hidden" name="post_id" value="<?= htmlspecialchars($sanpham['id']) ?>" />
-                                <div class="form-group row">
-                                    <div class="col">
-                                        <label class="col-form-label"><span class="text-danger">*</span> Bình luận của bạn</label>
-                                        <textarea name="comment" class="form-control" placeholder="Nhập bình luận của bạn" required></textarea>
+                                                <form action="<?= BASE_URL . '?act=post-comment' ?>" method="POST" class="review-form">
+                                                    <div class="form-group row">
+                                                        <div class="col">
+                                                            <input type="hidden" name="san_pham_id" value="<?= $sanpham['id'] ?>">
+                                                            <?php if (isset($_SESSION['user_client'])) : ?> <input type="hidden" name="tai_khoan" value="<?= $_SESSION['user_client'] ?>"> <?php endif; ?>
+                                                            <label class="col-form-label"><span class="text-danger">*</span>
+                                                                Nội dung bình luận</label>
+                                                            <textarea class="form-control" required name="binh_luan"></textarea>
+                                                            <div class="help-block pt-10"><span
+                                                                    class="text-danger">Lưu ý:</span>
+                                                                Chúng tôi rất trân trọng ý kiến của bạn để cải thiện dịch vụ. Vui lòng cung cấp thông tin cụ thể và chi tiết về trải nghiệm mua hàng của bạn.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="buttons">
+                                                        <button class="btn btn-sqr" type="submit">Bình luận</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-sqr">Gửi bình luận</button>
-                            <?php else: ?>
-                                <p>Vui lòng <a class="" href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a> để bình luận.</p>
-                            <?php endif; ?>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                            </div>
+                        </div>
 
                         <!-- product details reviews end -->
                     </div>
@@ -230,8 +240,8 @@
                                 <?php endif; ?>
 
                             <?php endforeach; ?>
-                            
-                         
+
+
                         </div>
                     </div>
                 </div>

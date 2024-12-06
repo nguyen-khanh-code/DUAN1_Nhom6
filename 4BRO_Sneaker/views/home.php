@@ -134,12 +134,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <!-- section title start -->
+                        
                         <div class="section-title text-center">
                             <h2 class="title">Sản phẩm</h2>
                             <p class="sub-title">Sản phẩm được cập nhật liên tục</p>
                         </div>
-                        <!-- section title start -->
+                        
                     </div>
                 </div>
                 <div class="row">
@@ -219,7 +219,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <!-- section title start -->
+                        
                         <div class="section-title text-center">
                             <h2 class="title">Sản phẩm nổi bật</h2>
                             <p class="sub-title">Những sản phẩm xem nhiều nhất<table></table></p>
@@ -280,43 +280,7 @@
                                         </div>
                                        <?php endforeach ?>
                             
-                            <!-- <div class="product-item">
-                                <figure class="product-thumb">
-                                
-                                    <a href=">
-                                        <img class="pri-img" src="assets/img/product/product-6.jpg" alt="product">
-                                        <img class="sec-img" src="assets/img/product/product-13.jpg" alt="product">
-                                    </a>
-                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>10%</span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">Xem chi tiết</button>
-                                    </div>
-                                </figure>
-                                <div class="product-caption text-center">
-                                  
-                                    <h6 class="product-name">
-                                        <a href=">Perfect Diamond Jewelry</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$60.00</span>
-                                        <span class="price-old"><del>$70.00</del></span>
-                                    </div>
-                                </div>
-                            </div> -->
-                            
-                            <!-- product item end -->
+     
                         </div>
                     </div>
                 </div>
@@ -336,7 +300,7 @@
                         <div class="group-product-banner">
                             <figure class="banner-statistics">
                                 <a href="#">
-                                    <img src="assets/img/banner/img-bottom-banner.jpg" alt="product banner">
+                                    <img src="https://cdn.shopify.com/s/files/1/0456/5070/6581/files/giay-sneaker-va-giay-the-thao-co-giong-nhau_600x600.jpg?v=1663556564" alt="product banner">
                                 </a>
                                 <div class="banner-content banner-content_style3 text-center">
                                     <h6 class="banner-text1">BEAUTIFUL</h6>
@@ -348,12 +312,12 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="categories-group-wrapper">
-                            <!-- section title start -->
+                            
                             <div class="section-title-append">
                                 <h4>best seller product</h4>
                                 <div class="slick-append"></div>
                             </div>
-                            <!-- section title start -->
+                            
 
                             <!-- group list carousel start -->
                             <div class="group-list-item-wrapper">
@@ -362,16 +326,22 @@
                                     <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
-                                                    <img src="assets/img/product/product-1.jpg" alt="">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
+                                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
-                                                        Diamond Exclusive ring</a></h5>
-                                                <div class="price-box">
-                                                    <span class="price-regular">$50.00</span>
-                                                    <span class="price-old"><del>$29.99</del></span>
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
+                                                <?= $sanPham['ten_san_pham']?></a></h5>
+                                                        <div class="price-box">
+                                                    <?php if ($sanPham['gia_khuyen_mai']) { ?>                       
+                                                    <span class="price-regular"><?= formatPrice($sanPham['gia_khuyen_mai']) .'đ'?></span>
+                                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) .'đ'?></del></span>
+
+                                                   <?php }else{?>
+                                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) .'đ'?></del></span>
+                                                  <?php } ?>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -379,7 +349,7 @@
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -395,11 +365,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -415,11 +385,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -435,11 +405,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -455,11 +425,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -475,11 +445,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -495,11 +465,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -515,7 +485,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
                                 </div>
                             </div>
@@ -524,30 +494,36 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="categories-group-wrapper">
-                            <!-- section title start -->
+                            
                             <div class="section-title-append">
                                 <h4>on-sale product</h4>
                                 <div class="slick-append"></div>
                             </div>
-                            <!-- section title start -->
+                            
 
                             <!-- group list carousel start -->
                             <div class="group-list-item-wrapper">
                                 <div class="group-list-carousel">
                                     <!-- group list item start -->
                                     <div class="group-slide-item">
-                                        <div class="group-item">
+                                    <div class="group-item">
                                             <div class="group-item-thumb">
-                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
-                                                    <img src="assets/img/product/product-17.jpg" alt="">
+                                                <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
+                                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
-                                                        Handmade Golden Necklace</a></h5>
-                                                <div class="price-box">
-                                                    <span class="price-regular">$50.00</span>
-                                                    <span class="price-old"><del>$29.99</del></span>
+                                                <h5 class="group-product-name"><a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>">
+                                                <?= $sanPham['ten_san_pham']?></a></h5>
+                                                        <div class="price-box">
+                                                    <?php if ($sanPham['gia_khuyen_mai']) { ?>                       
+                                                    <span class="price-regular"><?= formatPrice($sanPham['gia_khuyen_mai']) .'đ'?></span>
+                                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) .'đ'?></del></span>
+
+                                                   <?php }else{?>
+                                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) .'đ'?></del></span>
+                                                  <?php } ?>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -555,7 +531,7 @@
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -571,11 +547,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -591,11 +567,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -611,11 +587,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -631,11 +607,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -651,11 +627,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -671,11 +647,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+                                    <!-- <div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="<?= BASE_URL .  '?act=chi-tiet-san-pham&id_san_pham=' ?><?=$sanPham['id'] ?>?>">
@@ -691,7 +667,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- group list item end -->
                                 </div>
                             </div>
@@ -703,23 +679,23 @@
         </section>
         <!-- group product end -->
 
-        <!-- latest blog area start -->
-        <section class="latest-blog-area section-padding pt-0">
+       
+        <!-- <section class="latest-blog-area section-padding pt-0">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <!-- section title start -->
+                        
                         <div class="section-title text-center">
                             <h2 class="title">latest blogs</h2>
                             <p class="sub-title">There are latest blog posts</p>
                         </div>
-                        <!-- section title start -->
+                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="blog-carousel-active slick-row-10 slick-arrow-style">
-                            <!-- blog post item start -->
+                           
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details.html">
@@ -735,9 +711,9 @@
                                     </h5>
                                 </div>
                             </div>
-                            <!-- blog post item end -->
+                          
 
-                            <!-- blog post item start -->
+                           
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details.html">
@@ -753,9 +729,9 @@
                                     </h5>
                                 </div>
                             </div>
-                            <!-- blog post item end -->
+                          
 
-                            <!-- blog post item start -->
+                           
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details.html">
@@ -771,9 +747,9 @@
                                     </h5>
                                 </div>
                             </div>
-                            <!-- blog post item end -->
+                          
 
-                            <!-- blog post item start -->
+                           
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details.html">
@@ -789,9 +765,9 @@
                                     </h5>
                                 </div>
                             </div>
-                            <!-- blog post item end -->
+                          
 
-                            <!-- blog post item start -->
+                           
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details.html">
@@ -807,12 +783,12 @@
                                     </h5>
                                 </div>
                             </div>
-                            <!-- blog post item end -->
+                          
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>  -->
         <!-- latest blog area end -->
 
         <!-- brand logo area start -->
@@ -824,7 +800,7 @@
                             <!-- single brand start -->
                             <div class="brand-item">
                                 <a href="#">
-                                    <img src="assets/img/brand/1.png" alt="">
+                                    <img src="assets/img/brand/images.png" alt="">
                                 </a>
                             </div>
                             <!-- single brand end -->

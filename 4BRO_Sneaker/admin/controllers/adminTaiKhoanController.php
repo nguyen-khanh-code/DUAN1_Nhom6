@@ -221,17 +221,7 @@ class adminTaiKhoanController {
 
         require_once './views/taikhoan/khachhang/detailKhachHang.php';
     }
-    // public function deleteBinhLuan()
-    // {
-    //     $id_khach_hang = $_GET['id_khach_hang'];
 
-    //     $listBinhLuan = $this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
-    //     if ($listBinhLuan) {
-    //         $this->modelSanPham->destroyBinhLuan($id_khach_hang);
-    //     }
-    //     header("location:".'?act=san-pham');
-    //     exit();
-    // }
 
 
     public function formLogin(){
@@ -243,26 +233,30 @@ class adminTaiKhoanController {
     }
 
     public function login() {
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Lấy thông tin email và password từ form
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        // Kiểm tra đăng nhập
-        $user = $this->modelTaiKhoan->checkLogin($email, $password);
-
-        if ($user) { // Đăng nhập thành công
-            $_SESSION['user_admin'] = $user; // Lưu thông tin người dùng
-            header("Location: " . BASE_URL_ADMIN);
-            exit();
-        } else { // Đăng nhập thất bại
-            $_SESSION['error'] = "Email hoặc mật khẩu không đúng!";
-            $_SESSION['flash'] = true;
-            header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-            exit();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Lấy thông tin email và password từ form
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+    
+            // Kiểm tra đăng nhập
+            $user = $this->modelTaiKhoan->checkLogin($email, $password);
+    
+            if ($user) { // Đăng nhập thành công
+                $_SESSION['user_admin'] = $user; // Lưu thông tin người dùng
+                header("Location: " . BASE_URL_ADMIN);
+                exit();
+            } else { // Đăng nhập thất bại
+                $_SESSION['error'] = "Email hoặc mật khẩu không đúng!";
+                $_SESSION['flash'] = true;
+                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+                exit();
+            }
+        } else {
+            // Hiển thị form đăng nhập nếu phương thức không phải POST
+            require_once './views/loginAdmin.php';
         }
     }
-}
+    
 
 
     public function logout(){
@@ -370,11 +364,11 @@ class adminTaiKhoanController {
                 header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
                 exit();
             }
-            if ($updateSuccess) {
-                $_SESSION['success'] = 'Cập nhật thông tin cá nhân thành công!';
-                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
-                exit();
-            }
+            // if ($updateSuccess) {
+            //     $_SESSION['success'] = 'Cập nhật thông tin cá nhân thành công!';
+            //     header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
+            //     exit();
+            // }
             
     
             // Không có lỗi, tiến hành cập nhật thông tin

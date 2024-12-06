@@ -192,6 +192,7 @@ class adminSanPhamController
                     $trang_thai,
                     $mo_ta,
                     $ngay_nhap,
+                    
                     $new_file
                 );
 

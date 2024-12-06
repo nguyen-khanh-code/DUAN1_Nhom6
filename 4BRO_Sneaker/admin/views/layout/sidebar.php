@@ -10,7 +10,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./assets/dist/img/anhthe.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?= $_SESSION['user_admin'] ?></a>
@@ -36,14 +36,15 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-               <!-- <li class="nav-item">
-            <a href="" class="nav-link">
+               <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
               Dashboard
+                
               </p>
             </a>
-          </li> -->
+          </li>
           <li class="nav-item">
             <a href="?act=danh-muc" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
@@ -105,6 +106,16 @@
         </li>
 
     </ul>
+    <li class="nav-item">
+            <a href="?act=list-ma-giam-gia" class="nav-link">
+            <!-- <i class="nav-icon fas fa-file-invoice-dollar"></i> -->
+            <i class="fa-solid fa-cart-shopping"></i>
+              <p>
+                Mã giảm giá
+              </p>
+            </a>
+          </li>
+
 </li>
 
 

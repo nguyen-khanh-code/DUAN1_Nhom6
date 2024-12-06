@@ -1,37 +1,28 @@
 <?php
-
-class  TaiKhoan
-{
+class TaiKhoan {
     public $conn;
-    public function __construct()
-    {
+    public function __construct() {
         $this->conn = connectDB();
     }
-    public function checkLogin($email, $password)
-    {
+
+    public function checkLogin($email, $password) {
         try {
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['email' => $email]);
             $user = $stmt->fetch();
             if ($user && password_verify($password, $user['mat_khau'])) {
-                return $user;
+                return $user['email'];
             } else {
                 return false;
             }
-        } catch (\Exception $e) {
-
-
-
+        } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
             return false;
         }
     }
 
-    
-    public function register($ho_ten, $email, $mat_khau, $chuc_vu_id = 2, $trang_thai = 1)
-    {
-
+    public function register($ho_ten, $email, $mat_khau, $chuc_vu_id = 2, $trang_thai = 1) {
         try {
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
@@ -46,29 +37,53 @@ class  TaiKhoan
                 $stmt->execute(['ho_ten' => $ho_ten, 'email' => $email, 'mat_khau' => $hashedPassword, 'chuc_vu_id' => $chuc_vu_id, 'trang_thai' => $trang_thai]);
                 return "Đăng ký thành công";
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
         }
     }
-    public function getUserById($id)
-    {
+
+    public function getUserById($id) {
         $sql = "SELECT * FROM tai_khoans WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
-    public function updateUser($id, $ho_ten, $email, $anh_dai_dien)
-    {
+
+    public function updateUser($id, $ho_ten, $email, $anh_dai_dien) {
         $sql = "UPDATE tai_khoans SET ho_ten = :ho_ten, email = :email, anh_dai_dien = :anh_dai_dien WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['ho_ten' => $ho_ten, 'email' => $email, 'anh_dai_dien' => $anh_dai_dien, 'id' => $id]);
     }
-    public function updatePassword($id, $newPassword)
-    {
+
+    public function updatePassword($id, $newPassword) {
         $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-        // var_dump($newPassword);die;
         $sql = "UPDATE tai_khoans SET mat_khau = :mat_khau WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['mat_khau' => $hashedPassword, 'id' => $id]);
     }
-};
+
+    public function getTaiKhoanFormEmail($email) {
+        try {
+            $sql = 'SELECT * FROM tai_khoans WHERE email = :email';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':email' => $email,]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+    // public function checkEmail($email){
+    //     try{
+    //         $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+    //         $stmt = $this->conn->prepare($sql); 
+    //         $stmt->execute([
+    //             ':email' =>$email,
+        
+    //         ]);
+            
+    //         return $stmt->fetch();
+    //     }catch(Exception $e){
+    //         echo "Lỗi: ".$e->getMessage();
+    //     }
+    // }
+}

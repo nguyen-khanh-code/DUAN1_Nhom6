@@ -76,21 +76,24 @@
                                      <a href="#">
                                          <i class="pe-7s-user"></i>
                                      </a>
-                                     <?php if (isset($_SESSION['user_client'])) { ?>
-                                         <span><?= $_SESSION['user_client']['ho_ten']; ?></span>
-                                     <?php } ?>
+                                     
                                      <ul class="dropdown-list">
-                                         <?php if (!isset($_SESSION['user_client'])) { ?>
-                                             <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a></li>
-                                             <li><a href="<?= BASE_URL . '?act=register' ?>">Đăng ký</a></li>
-                                         <?php } else { ?>
-                                             <li><a href=" <?= BASE_URL.'?act=view-profile'?>">Tài khoản của tôi</a></li>
+                                     <li><a href="#"><?php 
+                                            
+                                            if (isset($_SESSION['user_client'])){ 
+                                                $name=preg_replace('/@.*/', '', $_SESSION['user_client']);
+                                                echo ucfirst($name)
+                                            ?></a></li>
+                                              <li><a href=" <?= BASE_URL.'?act=view-profile'?>">Tài khoản của tôi</a></li>
                                              <li><a href="<?= BASE_URL . '?act=logout' ?>">Đăng xuất</a></li>
-                                         <?php } ?>
+                                         <?php } else { ?>
+                                            <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a></li>
+                                             <li><a href="<?= BASE_URL . '?act=register' ?>">Đăng ký</a></li>
+                                          <?php } ?>
                                      </ul>
                                  </li>
                                  <li>
-                                     <a href="#" class="minicart-btn">
+                                     <a href="?act=gio-hang" class="minicart-btn">
                                          <i class="pe-7s-shopbag"></i>
                                          <div class="notification">2</div>
                                      </a>
