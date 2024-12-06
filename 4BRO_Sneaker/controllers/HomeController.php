@@ -42,16 +42,16 @@ class HomeController
         require_once './views/danhsachSanPham.php';
     }
 
-    public function thuonghieuSanPham()
-    {
-        $id = $_GET['id_san_pham'];
-        $sanpham = $this->modelSanPham->getDetailSanPham($id);
-        $listSanPham = $this->modelSanPham->getAllSanPham();
-        $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
-        $listSanPhamvaDanhMuc = $this->modelSanPham->getlistSanPhamDanhMuc($sanpham['danh_muc_id']);
+    // public function thuonghieuSanPham()
+    // {
+    //     $id = $_GET['id_san_pham'];
+    //     $sanpham = $this->modelSanPham->getDetailSanPham($id);
+    //     $listSanPham = $this->modelSanPham->getAllSanPham();
+    //     $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
+    //     $listSanPhamvaDanhMuc = $this->modelSanPham->getlistSanPhamDanhMuc($sanpham['danh_muc_id']);
 
-        require_once './views/thuonghieuSanPham.php';
-    }
+    //     require_once './views/thuonghieuSanPham.php';
+    // }
     public function formLogin(){
         require_once './views/auth/formLogin.php';
 

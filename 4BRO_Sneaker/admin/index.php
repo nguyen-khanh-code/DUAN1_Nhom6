@@ -59,10 +59,12 @@ try {
 
 
         // router quản đơn hàng
-'don-hang' => (new adminDonHangController())->danhsachDonHang(),
-'form-sua-don-hang' => (new adminDonHangController())->formEditDonHang(),
-'sua-don-hang' => (new adminDonHangController())->editDonHang(),
-'chi-tiet-don-hang' => (new adminDonHangController())->detailDonHang()
+        'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+        'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+        // 'sua_don_hang' => (new AdminDonHangController())->postEditDonHang(),
+        'chi-tiet-don-hang' => (new AdminDonHangController())->chiTietDonHangId(),
+        'huy-don-hang' => (new AdminDonHangController())->huyDonHangId(),
+        'cap-nhat-don-hang' => (new AdminDonHangController())->capNhatDonHangId(),
 
         // Route auth
         'login-admin' => (new adminTaiKhoanController())->formLogin(),
@@ -70,8 +72,8 @@ try {
         
 
         // Default case
-        default => throw new Exception('Route không tồn tại hoặc không được hỗ trợ'),
+        default => throw new Exception('Route không tồn tại hoặc không được hỗ trợ')
     };
 } catch (Exception $e) {
     echo $e->getMessage();
-}
+};
