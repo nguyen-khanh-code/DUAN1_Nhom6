@@ -56,7 +56,7 @@
                         <div class="widget-item">
                             <h6 class="widget-title">Follow Us</h6>
                             <div class="widget-body social-link">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100014551549295"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                                 <a href="#"><i class="fa fa-youtube"></i></a>

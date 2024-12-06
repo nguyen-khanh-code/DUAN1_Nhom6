@@ -45,8 +45,9 @@ function deletefile($file)
 function deletesessionError(){
     if(isset($_SESSION['flash'])){
         unset($_SESSION['flash']);
-        session_unset();
-        session_destroy();
+        unset($_SESSION['error']);
+        // session_unset();
+        // session_destroy();
     }
 }
 function formatPrice($price){
@@ -58,6 +59,13 @@ function formatDate($date){
     return date("d-m-Y", strtotime($date));
 }
 
+function checkLoginAdmin(){
+    if(!isset($_SESSION['user_admin'])) {
+        require_once './views/auth/formLogin.php';
+        // var_dump('abc');die;
+        exit();
+    }
+}
 
 // debug
 

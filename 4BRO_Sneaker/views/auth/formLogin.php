@@ -31,16 +31,19 @@
                             <div class="login-reg-form-wrap">
                                 <h5 class="text-center">ĐĂNG NHẬP</h5>
                                 <?php if(isset($_SESSION['error'])) { ?>
-                                <p class="text-danger login-box-msg text-center"><?= $_SESSION['error'] ?></p>
-                                <?php}else{ ?>
+                                <p class="text-danger login-box-msg text-center"><?= $_SESSION['error']; unset($_SESSION['error']);?></p>
+                                <?php }else{ ?>
                                 <p class="login-box-msg text-center">Vui lòng đăng nhập</p>
                                 <?php } ?>
                                 <form action="<?= BASE_URL . '?act=check-login' ?>" method="post">
                                     <div class="single-input-item">
-                                        <input type="email" placeholder="Email or Username" name="email" required />
+                                        <input type="email" placeholder="Email or Username" name="email" class=""  />
+                                        
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="password" placeholder="Enter your Password" name="password" required />
+                                        <input type="password" placeholder="Enter your Password" name="password"  />
+                                        
+                                    </div>
                                     </div>
                                     <div class="single-input-item">
                                         <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
