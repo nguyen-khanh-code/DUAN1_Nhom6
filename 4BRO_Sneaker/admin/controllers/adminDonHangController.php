@@ -1,138 +1,133 @@
 <?php
-
-class adminDonHangController
+class AdminDonHangController
 {
-    public $modelDonHang;
+    public $modelDonHang
+    ;
+
     public function __construct()
     {
-        $this->modelDonHang = new adminDonHang();
+        $this->modelDonHang
+         = new AdminDonHang();
     }
-    public function danhsachDonHang()
+
+    public function danhSachDonHang()
     {
-        $danhsachDonHang = $this->modelDonHang->getAllDonHang();
+        $listDonHang = $this->modelDonHang
+        ->getAllDonHang();
         require_once './views/donhang/listDonHang.php';
     }
-    public function detailDonHang()
-    {
-        $don_hang_id = $_GET['id_don_hang'];
-        // var_dump($don_hang_id);die;
-        // lấy thông tin đơn hàng ở bảng đơn hàng
-        $donHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
-        $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
-        $listTrangThaisDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
-        // var_dump($sanPhamDonHang);die;
+    public function chiTietDonHangId(){
+        $don_hang_id=$_GET['id_don_hang'];
+        $donHang=$this->modelDonHang
+        ->getChiTietDonHangId($don_hang_id);
+        //lấy danh sách sảm phẩm
+        $sanPhamDonHang=$this->modelDonHang
+        ->getlistSanPhamDonHang($don_hang_id);
+        $listTrangThai = $this->modelDonHang
+        ->getAllTrangThaiDonHang();
+        // var_dump($donHang);die();
         require_once './views/donhang/detailDonHang.php';
     }
-   
+
     public function formEditDonHang()
     {
         $id = $_GET['id_don_hang'];
-        $donHang = $this->modelDonHang->getDetailDonHang($id);
-        // $listAnhSanPham=$this->modelSanPham->getListAnhSanPham($id);
-        // var_dump($sanpham);die;
-        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
-
+        $donHang = $this->modelDonHang
+        ->getChiTietDonHangId($id);
+        // var_dump($SanPham);die();
+        $listTrangThaiDonHang = $this->modelDonHang
+        ->getAllTrangThaiDonHang();
+        // var_dump($listAnhSanPham);die();
         if ($donHang) {
-
             require_once './views/donhang/editDonHang.php';
-            deletesessionError();
-            // require_once './views/sanpham/editSanPham.php';
+            deleteSessionError();
         } else {
-            header("location:" . '?act=don-hang');
+            header('location: ' . BASE_URL_ADMIN . '?act=don-hang');
+            exit();
         }
     }
-    public function editDonHang()
+    public function postEditDonHang()
     {
+        // var_dump($_POST); die();
+        //kiểm tra thêm dữ liệu có phải được submit ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //lấy dữ liệu
+            //lấy  ra dữ liệu tu form
             $don_hang_id = $_POST['don_hang_id'] ?? '';
-
-
-            $ten_nguoi_nhan = $_POST['ten_nguoi_nhan' ?? ''];
-            $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan' ?? ''];
-            $email_nguoi_nhan = $_POST['email_nguoi_nhan' ?? ''];
-            $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan' ?? ''];
-            $ghi_chu = $_POST['ghi_chu' ?? ''];
-            $trang_thai_id = $_POST['trang_thai_id' ?? ''];
-
-
-
-            $errors = [];
+            //truy vấn
+            $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'] ?? '';
+            $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'] ?? '';
+            $email_nguoi_nhan = $_POST['email_nguoi_nhan'] ?? '';
+            $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'] ?? '';
+            $ghi_chu = $_POST['ghi_chu'] ??'';
+            // var_dump($ghi_chu);die();
+            //xu ly lỗi
+            $error = [];
             if (empty($ten_nguoi_nhan)) {
-                $errors['ten_nguoi_nhan'] = 'Tên người nhận không được để trống';
+                $error['ten_nguoi_nhan'] = "Tên người nhận không được để trống";
             }
             if (empty($sdt_nguoi_nhan)) {
-                $errors['sdt_nguoi_nhan'] = 'SDT người nhận không được để trống';
+                $error['sdt_nguoi_nhan'] = "Sdt người nhận không được để trống";
             }
             if (empty($email_nguoi_nhan)) {
-                $errors['email_nguoi_nhan'] = 'Email người nhận không được để trống';
+                $error['email_nguoi_nhan'] = "Email người nhận không được để trống";
             }
             if (empty($dia_chi_nguoi_nhan)) {
-                $errors['dia_chi_nguoi_nhan'] = 'Địa chỉ người nhận không được để trống';
+                $error['dia_chi_nguoi_nhan'] = "Địa chỉ người nhận không được để trống";
             }
-            if (empty($trang_thai_id)) {
-                $errors['trang_thai_id'] = 'Trạng thái đơn hàng';
-            }
+           
 
-            //  var_dump($errors);die;
-            $_SESSION['error'] = $errors;
-            // var_dump($errors);die;
-            // nếu không có lỗi tiến hành sửa 
-            // var_dump($errors);die;
-            if (empty($errors)) {
-                $this->modelDonHang->updateDonHang(
-                    $don_hang_id,
+            $_SESSION['error'] = $error;
+        //    var_dump($error); die();
+            if (empty($error)) {
+                 $this->modelDonHang
+                 ->updateDonHang(
+$don_hang_id,
                     $ten_nguoi_nhan,
                     $sdt_nguoi_nhan,
                     $email_nguoi_nhan,
                     $dia_chi_nguoi_nhan,
                     $ghi_chu,
-                    $trang_thai_id
-
                 );
 
+                header('location: ' . BASE_URL_ADMIN . '?act=don-hang');
 
-
-                header("location:" . BASE_URL_ADMIN . '?act=don-hang');
-                exit();
+                // exit();
             } else {
                 $_SESSION['flash'] = true;
-                header("location:" . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $don_hang_id);
+                header('location: ' . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $don_hang_id);
                 exit();
-                require_once './views/donhang/editDonHang.php';
-            }
 
-            // $this->modelDanhMuc->getAllDanhMuc();
-            // require_once './views/sanpham/addSanPham.php';
+            }
         }
-        // require_once './views/sanpham/addSanPham.php';
+    }
+    public function huyDonHangId(){
+        // var_dump($_GET['id_don_hang']);
+        $don_hang_id = $_GET['id_don_hang'];
+        $trang_thai_id = 9;
+        
+        $this->modelDonHang
+        ->updateHuyDonHang($don_hang_id,$trang_thai_id);
+        header('location: ' . BASE_URL_ADMIN . '?act=don-hang');
 
     }
-    // public function deleteSanPham()
-    // {
-    //     $id = $_GET['id_san_pham'];
-    //     $sanpham = $this->modelSanPham->getDetailSanPham($id);
-    //     if ($sanpham) {
-    //         deletefile($sanpham['hinh_anh']);
-    //         $this->modelSanPham->destroySanPham($id);
-    //     }
-    //     header("location:".'?act=san-pham');
-    //     exit();
-    // }
-    // public function detailSanPham()
-    // {
-    //     $id = $_GET['id_san_pham'];
-    //     $sanpham = $this->modelSanPham->getDetailSanPham($id);
-    //     // $listSanPham=$this->modelSanPham->getListAnhSanPham($id);
-    //     // var_dump($sanpham);die;
-    //     // $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+    
+    public function capNhatDonHangId(){
+        // var_dump($_GET['id_don_hang']);
+        $don_hang_id = $_GET['id_don_hang'];
+        $donHang=$this->modelDonHang
+        ->getChiTietDonHangId($don_hang_id);
+        $trang_thai_id=$donHang['trang_thai_id'];
+        if( $trang_thai_id >=1 && $trang_thai_id < 7){
+        $trang_thai_id += 1 ;
+        }
+        $this->modelDonHang
+        ->updateHuyDonHang($don_hang_id,$trang_thai_id);
+        header('location: ' . BASE_URL_ADMIN . '?act=chi-tiet-don-hang&id_don_hang=' . $don_hang_id);
 
-    //     if ($sanpham) {
+    }
+    
 
-    //         require_once './views/sanpham/detailSanPham.php';
-    //         // deletesessionError();
-    //         // require_once './views/sanpham/editSanPham.php';
-    //     } else {
-    //         header("location:" . '?act=san-pham');
-    //     }
-    // }
+
 }
+?>
