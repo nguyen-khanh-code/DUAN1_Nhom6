@@ -289,7 +289,7 @@ class adminTaiKhoanController
             if (is_array($user)) { // Đăng nhập thành công
                 $_SESSION['user_admin'] = $user['email']; // Lưu email người dùng
                 $_SESSION['user_name'] = $user['ho_ten']; // Lưu tên người dùng
-                header("Location: " . BASE_URL_ADMIN. '?act=dashboard');
+                header("Location: " . BASE_URL_ADMIN. '?act=danh-muc');
                 exit();
             } else { // Đăng nhập thất bại
                 $_SESSION['error'] = $user; // Lưu thông báo lỗi
