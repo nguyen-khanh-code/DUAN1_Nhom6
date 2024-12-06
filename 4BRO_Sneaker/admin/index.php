@@ -30,7 +30,6 @@ if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'login-ad
 try {
     match ($act) {
         '/' => (neW adminBaoCaoThongKeController())->home(),
-        'dashboard' => (new adminTaiKhoanController())->showDashboard(),
         // Route danh mục
         'danh-muc' => (new adminDanhMucController())->danhsachDanhMuc(),
         'form-them-danh-muc' => (new adminDanhMucController())->formAddDanhMuc(),

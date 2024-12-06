@@ -434,8 +434,4 @@ class adminTaiKhoanController
         }
     }
 
-    public function showDashboard()
-    {
-        include './views/dashboard.php';
-    }
 }
