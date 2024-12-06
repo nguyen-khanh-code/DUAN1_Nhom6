@@ -89,8 +89,12 @@ include './views/layout/navbar.php'
                         <?= $donHang['ten_trang_thai'] ?>
                         </span>
                         </td>
+<<<<<<< HEAD
                      
                       <td>
+=======
+                        <td>
+>>>>>>> d2fd655b94b9ea4c7e937132ff97c494408989aa
                         <div class="btn-group btn-group-sm">
                           <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-don-hang&id_don_hang=' . $donHang['id'] ?>" ><button class="btn btn-primary" ><i class="fas fa-eye"></i></button></a>
                           <?php  if($donHang['trang_thai_id']==1){?>

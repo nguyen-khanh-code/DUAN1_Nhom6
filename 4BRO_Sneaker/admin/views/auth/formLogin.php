@@ -24,10 +24,22 @@
     </div>
     <div class="card-body">
     <?php if(isset($_SESSION['error'])){ ?>
-    <p class="text-danger"><?= $_SESSION['error'] ?></p>
-    <?php  }else{ ?>
-      <p class="login-box-msg text-center">Vui lòng đăng nhập</p>
-    <?php } ?>
+    <p class="text-danger">
+        <?php 
+        // Kiểm tra nếu $_SESSION['error'] là một mảng
+        if (is_array($_SESSION['error'])) {
+            // Nối các phần tử của mảng thành một chuỗi, mỗi phần tử cách nhau bởi dấu phẩy
+            echo implode(', ', $_SESSION['error']);
+        } else {
+            // Nếu không phải mảng, hiển thị giá trị bình thường
+            echo $_SESSION['error'];
+        }
+        ?>
+    </p>
+      <?php  } else { ?>
+          <p class="login-box-msg text-center">Vui lòng đăng nhập</p>
+      <?php } ?>
+
 
       <form action="<?= BASE_URL_ADMIN . '?act=check-login-admin'?>" method="post">
         <div class="input-group mb-3">

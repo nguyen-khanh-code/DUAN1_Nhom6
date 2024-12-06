@@ -22,7 +22,7 @@
           </div>
           
       </div><!-- /.container-fluid -->
-    </section>
+    </section>\
     <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Sửa danh mục </h3>
