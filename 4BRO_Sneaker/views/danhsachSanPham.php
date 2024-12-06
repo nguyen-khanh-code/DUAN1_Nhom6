@@ -1,5 +1,5 @@
-<?php require_once 'layout/header.php'; ?>
-<?php require_once 'layout/menu.php'; ?>
+<?php require_once './views/layout/header.php'; ?>
+<?php require_once './views/layout/menu.php'; ?>
 <main>
 <div class="breadcrumb-area">
             <div class="container">
@@ -69,8 +69,8 @@
                                
                                 <figure class="product-thumb">
                                     <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanpham['id'] ?>">
-                                        <img class="" src="<?=$sanpham['hinh_anh']?>" alt="product">
-                                        <img class="" src="<?=$sanpham['hinh_anh']?>" alt="product">
+                                        <!-- <img class="" src=" " alt="product"> -->
+                                        <img class="" src="<?=BASE_URL.$sanpham['hinh_anh']?>" alt="product">
 
 
                                     </a>
@@ -144,7 +144,7 @@
 </div>
 <!-- page main wrapper end -->
 </main>
-<?php require_once 'layout/footer.php';  ?>
+<?php require_once './views/layout/footer.php';  ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const productsPerPage = 16;
