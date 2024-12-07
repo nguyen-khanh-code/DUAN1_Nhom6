@@ -68,22 +68,24 @@ class HomeController
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = $this->modelTaiKhoan->checkLogin($email, $password);
-            // $errors = [];
-            // if (empty($email)) {
-            //     $errors[] = 'Vui lòng nhập email.';
-            // }
-            // if (empty($password)) {
-            //     $errors[] = 'Vui lòng nhập mật khẩu.';
-            // }
-            // if (!empty($errors)) {
-            //     $_SESSION['error'] = implode(' ', $errors);
-            //     header("Location: " . BASE_URL . '?act=login');
-            //     exit();
-            // }
+          
+            $errors = [];
+            if (empty($email)) {
+                $errors[] = 'Vui lòng nhập email.';
+            }
+            if (empty($password)) {
+                $errors[] = 'Vui lòng nhập mật khẩu.';
+            }
+            if (!empty($errors)) {
+                $_SESSION['error'] = implode(' ', $errors);
+                header("Location: " . BASE_URL . '?act=login');
+                exit();
+            }
 
             if ($user == $email) {
+                
                 $_SESSION['user_client'] = $user;
-                // $_SESSION['user_client'] = $user;
+                // $_SESSION['user_client'] = $user['id'];
                 header("Location: " . BASE_URL);
                 exit();
             } else {
@@ -170,7 +172,8 @@ class HomeController
     {
         $userId = $_SESSION['user_client'];
         $taiKhoan = new TaiKhoan();
-        $user = $taiKhoan->getUserById($userId);
+        $user = $taiKhoan->getTaiKhoanFormEmail($userId);
+        // var_dump($user);die;
         if ($user) {
 
             require_once './views/thongTinCaNhan.php';
@@ -180,19 +183,20 @@ class HomeController
     public function updateProfile()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $userId = $_SESSION['user_id'];
+            $email = $_SESSION['user_client'];
             $ho_ten = $_POST['ho_ten'];
-            $email = $_POST['email'];
+            // $email = $_POST['email'];
             $anh_dai_dien = $_FILES['anh_dai_dien']['name'];
             if ($anh_dai_dien) {
-                $targetDir = "../uploads/";
-                $targetFile = $targetDir . basename($anh_dai_dien);
+                $targetDir = "uploads/";
+                $targetFile = $targetDir . $anh_dai_dien;
                 move_uploaded_file($_FILES['anh_dai_dien']['tmp_name'], $targetFile);
+                $anh_dai_dien=$targetFile;
             } else {
                 $anh_dai_dien = $_POST['current_avatar'];
             }
             $taiKhoan = new TaiKhoan();
-            $taiKhoan->updateUser($userId, $ho_ten, $email, $anh_dai_dien);
+            $taiKhoan->updateUser( $ho_ten, $email, $anh_dai_dien);
 
 
             $errors = [];
@@ -212,7 +216,7 @@ class HomeController
     public function changePassword()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $userId = $_SESSION['user_id'];
+            $userId = $_SESSION['user_client'];
             $oldPassword = $_POST['old_password'];
             $newPassword = $_POST['new_password'];
             $confirmPassword = $_POST['confirm_password'];
@@ -223,10 +227,12 @@ class HomeController
             }
             // var_dump($oldPassword);die;
             $taiKhoan = new TaiKhoan();
-            $user = $taiKhoan->getUserById($userId);
+            $user = $taiKhoan->getTaiKhoanFormEmail($userId);
             if ($user && password_verify($oldPassword, $user['mat_khau'])) {
                 $taiKhoan->updatePassword($userId, $newPassword);
                 $_SESSION['success'] = "Mật khẩu đã được thay đổi thành công.";
+                header("Location: " . BASE_URL . '?act=login');
+                exit();
             } else {
                 $_SESSION['error'] = "Mật khẩu hiện tại không đúng.";
             }

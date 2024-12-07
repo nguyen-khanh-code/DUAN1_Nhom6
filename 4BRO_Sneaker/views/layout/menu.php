@@ -35,11 +35,7 @@
                                              <li><a href="<?= BASE_URL .'?act=thuong-hieu-san-pham&danh_muc_id=3'?>">Converse</a></li>
                                              <li><a href="<?= BASE_URL .'?act=thuong-hieu-san-pham&danh_muc_id=4'?>">Gucci</a></li>
                                              <li><a href="<?= BASE_URL .'?act=thuong-hieu-san-pham&danh_muc_id=5'?>">Jordan</a></li>
-                                             <!-- <li><a href="blog-details.html"></a></li>
-                                                    <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
-                                                    <li><a href="blog-details-audio.html">blog details audio</a></li>
-                                                    <li><a href="blog-details-video.html">blog details video</a></li>
-                                                    <li><a href="blog-details-image.html">blog details image</a></li> -->
+                                             
                                          </ul>
 
                                      </li>
@@ -76,14 +72,18 @@
                                      <a href="#">
                                          <i class="pe-7s-user"></i>
                                      </a>
-                                     
+                                   
                                      <ul class="dropdown-list">
-                                     <li><a href="#"><?php 
+                                        
                                             
-                                            if (isset($_SESSION['user_client'])){ 
-                                                $name=preg_replace('/@.*/', '', $_SESSION['user_client']);
+                                            
+                                     <li><a href="#">
+
+                                      <?php  if (isset($_SESSION['user_client'])){ 
+                                                $name=preg_replace('/@.*/', '',$_SESSION['user_client'] );
                                                 echo ucfirst($name)
-                                            ?></a></li>
+                                            ?>
+                                     </a></li>
                                               <li><a href=" <?= BASE_URL.'?act=view-profile'?>">Tài khoản của tôi</a></li>
                                              <li><a href="<?= BASE_URL . '?act=logout' ?>">Đăng xuất</a></li>
                                          <?php } else { ?>

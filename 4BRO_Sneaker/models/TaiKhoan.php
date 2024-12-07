@@ -49,17 +49,17 @@ class TaiKhoan {
         return $stmt->fetch();
     }
 
-    public function updateUser($id, $ho_ten, $email, $anh_dai_dien) {
-        $sql = "UPDATE tai_khoans SET ho_ten = :ho_ten, email = :email, anh_dai_dien = :anh_dai_dien WHERE id = :id";
+    public function updateUser( $ho_ten, $email, $anh_dai_dien) {
+        $sql = "UPDATE tai_khoans SET ho_ten = :ho_ten, email = :email, anh_dai_dien = :anh_dai_dien WHERE email = :email";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['ho_ten' => $ho_ten, 'email' => $email, 'anh_dai_dien' => $anh_dai_dien, 'id' => $id]);
+        $stmt->execute(['ho_ten' => $ho_ten, 'email' => $email, 'anh_dai_dien' => $anh_dai_dien]);
     }
 
-    public function updatePassword($id, $newPassword) {
+    public function updatePassword($email, $newPassword) {
         $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-        $sql = "UPDATE tai_khoans SET mat_khau = :mat_khau WHERE id = :id";
+        $sql = "UPDATE tai_khoans SET mat_khau = :mat_khau WHERE email = :email";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['mat_khau' => $hashedPassword, 'id' => $id]);
+        $stmt->execute(['mat_khau' => $hashedPassword, 'email' => $email]);
     }
 
     public function getTaiKhoanFormEmail($email) {
